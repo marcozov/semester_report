@@ -1,0 +1,81 @@
+ip link set wlan0 down
+iw wlan0 set type ibss
+ip link set wlan0 up
+
+iw wlan0 ibss join adhoc-test 2412
+
+ip address add 10.10.0.101/24 dev wlan0
+
+
+ip address del 10.10.0.101/24 dev wlan0
+
+
+
+
+ip link set wlan0 down
+iw wlan0 set type ibss
+ip link set wlan0 up
+
+iw wlan0 ibss join adhoc-test 2412
+
+ip address add 10.10.0.102/24 dev wlan0
+
+
+
+ip address del 10.10.0.102/24 dev wlan0
+
+
+OR
+systemctl disable NetworkManager.service 
+ip link set wlp4s0 down
+iwconfig wlp4s0 mode ad-hoc
+iwconfig wlp4s0 essid 'll2'
+iwconfig wlp4s0 key 1234567890
+iwconfig wlp4s0 channel 4
+ip link set wlp4s0 up
+ip addr add 169.254.34.2/16 dev wlp4s0
+
+
+=================
+
+set_network 0 ssid "test-adhoc"
+set_network 0 psk "semester_project2018"
+
+wpa_supplicant -B -i wlan0 -c <(wpa_passphrase test-adhoc semester_project2018)
+
+======
+
+list connections: nmcli c
+kill a connection to an SSID: nmcli c delete id
+
+installing go:
+$ sudo apt-get install golang-go
+
+If that's too old for you, try:
+
+$ sudo add-apt-repository ppa:gophers/archive
+$ sudo apt-get update
+$ sudo apt-get install golang-1.10-go
+
+VIRTUALENV for python: 
+apt-get install python-pip
+pip install virtualenv
+mkdir /root/envs
+mkdir /root/envs/py3
+virtualenv py3 -p /usr/bin/python3
+
+
+/etc/environment
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/root/envs/py3/bin"
+LC_ALL=en_US.UTF-8
+LANG=en_US.UTF-8
+GOPATH="/root/go"
+
+
+
+
+running the communication protocol:
+./IPChandler -name=nodeA -address=10.10.0.101:5001 -peers=10.10.0.102:5002,10.10.0.103:5003
+./IPChandler -name=nodeB -address=10.10.0.102:5002 -peers=10.10.0.101:5001,10.10.0.103:5003
+./IPChandler -name=nodeC -address=10.10.0.103:5003 -peers=10.10.0.101:5001,10.10.0.102:5002
+

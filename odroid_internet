@@ -1,0 +1,19 @@
+steps for connecting odroid to the internet (via cable)
+
+1- setup a PC with a WIFI internet connection
+2- create an ethernet connection for sharing the internet connection: https://help.ubuntu.com/community/Internet/ConnectionSharing
+3- configure dnsmasq
+3- connect the odroid directly to the PC
+
+
+dnsmasq configuration:
+
+/etc/dnsmasq.conf:
+interface=enp2s0
+dhcp-range=10.42.0.2,10.42.0.10,255.255.255.0,12h
+no-hosts
+addn-hosts=/etc/hosts.dnsmasq
+
+
+/etc/hosts.dnsmasq:
+10.42.0.1 marco-X556UJ

@@ -1,0 +1,40 @@
+before installing numpy, make sure apt-get and gcc are up-to-date: (takes a lot of time)
+apt-get update    
+apt-get upgrade gcc
+
+install tensorflow:
+dependencies (probably not necessary) https://github.com/lhelontra/tensorflow-on-arm
+build guide: https://hackernoon.com/running-yolo-on-odroid-yolodroid-5a89481ec141
+
+using pip: https://github.com/lhelontra/tensorflow-on-arm/issues/15
+wget https://github.com/lhelontra/tensorflow-on-arm/releases/download/v1.9.0/tensorflow-1.9.0-cp35-none-linux_armv7l.whl -P /tmp/
+md5sum /tmp/tensorflow-1.9.0-cp35-none-linux_armv7l.whl
+pip install  /tmp/tensorflow-1.9.0-cp35-none-linux_armv7l.whl
+
+releases: https://github.com/lhelontra/tensorflow-on-arm/releases
+
+alternative: try docker
+
+solving GLIBCXX_3.4.22 bug: https://github.com/tensorflow/serving/issues/819
+add-apt-repository ppa:ubuntu-toolchain-r/test -y
+apt-get update
+apt-get install libstdc++6
+
+installing PIL: 
+apt-get install libjpeg-dev
+pip install Pillow
+
+
+setting locale:
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+or copy:
+LC_ALL=en_US.UTF-8
+LANG=en_US.UTF-8
+inside /etc/environment
+
+opencv:
+https://github.com/nanuyo/opencvsh_for_ubuntu_mate/blob/master/README.md
+
+cmake -D CMAKE_BUILD_TYPE=RELEASE -DBUILD_TIFF=ON -D CMAKE_INSTALL_PREFIX=/usr/local -DPYTHON_DEFAULT_EXECUTABLE=$(which python) ..
