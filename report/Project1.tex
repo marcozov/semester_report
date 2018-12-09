@@ -18,6 +18,7 @@
 \usepackage{siunitx} 
 \usepackage{float}
 \restylefloat{table}
+\usepackage{mathtools}
 
 \begin{document}
 	
@@ -109,9 +110,11 @@ Our protocol is divided in three different phases, that involve significantly di
 \item perform object detection on the Odroid, and propagate the result to the other hosts of the network
 \item aggregate information together in order to determine a final prediction
 \end{itemize}
+\subsection{Consensus Protocol}
+Whenever a consensus problem is faced, there are few standard approaches that define how the nodes cooperate in order to achieve a result. One way consists in having a leader that takes the local predictions from all the nodes in the network, aggregates the results, takes a final decision, and propagates the final decisions to all the nodes in the network. An advantage of this approach is that the communication scheme is quite simple as well: all the nodes provide their prediction to a single node, who is the only one that needs to send replies. This also implies that the bandwidth usage is kept low, since only the leader needs to see other nodes' messages. However, this solution requires that the leader is elected dynamically in case of failures (leader election). Furthermore, there should be some criteria to determine the eligibility of nodes to become leaders (e.g. the node that is able to communicate with more hosts). A second approach would be to have every node to receive all the values and computing the (same) solution. While this ensures robustness (especially against faults), it also means that several unnecessary work is performed: the result is the same as the previous approach, with the difference there may be several more messages transmitted between hosts. Finally, a third approach consists in having each node to compute part of the final solution and then all the computations have to be aggregated. This approach is potentially very flexible and smart, because it allows to specify very complex data fusion mechanisms. However, these mechanisms are usually very complex and guarantee better results only with some specific assumptions. For instance, many approaches make sense if the network is separated in clusters and if each node knows who is in its cluster. Since we are assuming that in our adhoc network every node can communicate directly with all the others, we decided to proceed with the first approach.
 \subsection{Protocol Overview}
 \label{subsec:protooverview}
-Our approach is inspired to the standard family of consensus protocols Paxos. However, our usage is different from the typical ones, which often aim to reach \textbf{state machine replication}. In fact, we want to get advantage of the hosts' predictions just to determine whether the target object is present or not. As a consequence, many of the constraints of classical consensus protocols are relaxed and do not need to be met. The idea is to define a majority as a fraction of the total number of hosts of the network (N). The majority (M) should express a meaningful lower bound in terms of number positive predictions that are needed in order to trigger a positive final prediction. We defined M=N/3 + 1.
+Our approach is a variant of the standard family of consensus protocols Paxos. However, our usage is different from the typical ones, which often aim to reach \textbf{state machine replication}. In fact, we want to get advantage of the hosts' predictions just to determine whether the target object is present or not. As a consequence, many of the constraints of classical consensus protocols are relaxed and do not need to be met. The idea is to define a majority as a fraction of the total number of hosts of the network (N). The majority (M) should express a meaningful lower bound in terms of number positive predictions that are needed in order to trigger a positive final prediction. We defined M=N/3 + 1.
 \begin{center}
 	\captionsetup{type=figure}
 	\includegraphics[width=0.47\textwidth]{img/protocol_sketch_inter_host.jpg}
@@ -150,7 +153,22 @@ There are different kinds of messages that the hosts of our system handle and pr
 \subsubsection{Leader Election}
 If we assume that all the nodes have good reachability with each other, it is not important who the leader is. Instead, it is important that the whole swarm does not rely always on the same node to be the leader, in order to avoid a single point of failure. For this reason, the leader is simply determined by the Round ID: each leader has a Node ID, and at round i, the leader is the node with Node ID = i \% N, where N is the number of hosts in our network.
 \section{Experiments}
-In this section we describe the results of our approach, by showing experiments performed on few well-known objects. We show that our approach is effective in more than one setup. We also describe how our approach of considering the bounding box in order to estimate the distance from an object is effective (or ineffective) in a given setup.
+In this section we describe the results of our approach, by showing experiments performed on few well-known objects. We consider two different setups: one that involves a noisy environment and one that was performed in a clean environment without surrounding objects.
+Our experiments aim to validate different aspects of our solution:
+\begin{itemize}
+\item communication for the consensus protocol convergence
+\item data fusion mechanism
+\end{itemize}
+We separated the two procedures, because with the hardware that we had it was hard to validate the protocol on a real setup.
+\subsection{Data Fusion Validation}
+In order to validate the data fusion mechanism we compared our multi-agent system with the single-host system. The measure that we are using relates to the Precision and the Recall. Since Precision = $\frac{TP}{TP+FP}$ and Recall = $\frac{TP}{TP+FN}$, we need two different scenarios (with the same setup, in order to have consistent conditions) to evaluate them.
+We assumed to be in an ideal environment. This allowed us to consider an arbitrary number of devices in order to compare the two approaches (single-host system and multi-host system). Let N be the number of hosts that we consider in our system. If N=1, we are in the special case of the single-host system. Let K be the number of different views that we consider for our experiments. For each point of view, we captured some pictures with camera while it was pointing to the object (if present, otherwise it still points to the same direction). These pictures are aggregated in the same way as the consensus protocol does for the local prediction process.
+\subsubsection{Single-host system}
+\subsubsection{Multi-host system}
+We started with a noisy setup, sketched in figure XXX. 
+\subsection{Communication and Consensus Test}
+\subsection{Methodology}
+Our approach 
 \subsection{Equidistant cameras from different angulations}
 As figure XXX shows, the cameras are pointing in the same direction. Depending on the nature of the object, the detection accuracy is improved in comparison of a single viewpoint prediction. 
 \subsection{Not equidistant cameras from different angulations}
