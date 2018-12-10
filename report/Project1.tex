@@ -162,9 +162,10 @@ Our experiments aim to validate different aspects of our solution:
 We separated the two procedures, because with the hardware that we had it was hard to validate the protocol on a real setup.
 \subsection{Data Fusion Validation}
 In order to validate the data fusion mechanism we compared our multi-agent system with the single-host system. The measure that we are using relates to the Precision and the Recall. Since Precision = $\frac{TP}{TP+FP}$ and Recall = $\frac{TP}{TP+FN}$, we need two different scenarios (with the same setup, in order to have consistent conditions) to evaluate them.
-We assumed to be in an ideal environment. This allowed us to consider an arbitrary number of devices in order to compare the two approaches (single-host system and multi-host system). Let N be the number of hosts that we consider in our system. If N=1, we are in the special case of the single-host system. Let K be the number of different views that we consider for our experiments. For each point of view, we captured some pictures with camera while it was pointing to the object (if present, otherwise it still points to the same direction). These pictures are aggregated in the same way as the consensus protocol does for the local prediction process.
-\subsubsection{Single-host system}
+We assumed to be in an ideal environment. This allowed us to consider an arbitrary number of devices in order to compare the two approaches (single-host system and multi-host system). Let N be the number of hosts that we consider in our system. If N=1, we are in the special case of the single-host system. Let K be the number of different views that we consider for our experiments. For each point of view, we captured some pictures with camera while it was pointing to the object (if present, otherwise it still points to the same direction). The predictions of these pictures are aggregated in the same way as the consensus protocol does for the local prediction process.
+\subsubsection{Single-host system}There are K samples (one per viewpoint), and the precision and recall are computed on the basis of the outcomes of the predictions on these samples, in the two distinct scenarios.
 \subsubsection{Multi-host system}
+Here, the number of samples (from which precision and recall are derived)depends on N.
 We started with a noisy setup, sketched in figure XXX. 
 \subsection{Communication and Consensus Test}
 \subsection{Methodology}
