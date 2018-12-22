@@ -252,13 +252,14 @@ We started with a clean setup, sketched in figure XXX (TODO: put an image that s
 Here, each sample is represented by a set of local predictions from N hosts. This means that for each scenario we have the number of samples that is equal to the combinations of K over N: $\binom{K}{N}$.\\*
 
 \subsection{Communication and Consensus Test}
-****TODO****
+In order to test the communication and the convergence of the consensus protocol, we used a setup like the one shown in figure \ref{fig:setup}: there are three drones that point at the center, and they are trying to detect a person. We aim at showing that having a minority of devices (one out three, in this case) that has a non-optimal viewpoint does not impact on the correctness of the system's output.\\*
+We firstly put a chair instead of a person, and we saw that two out of three devices detected the absence of a person quite accurately: their confidence score was around 10\%. The third drone's confidence score fluctuated between 30\% and 40\%. During the experiments, we saw that the system was accurately detecting the person as absent although a threshold of 25\% was being used: no false positives.\\*
+The same procedure was followed again, but with a person with outstretched arms, and the outcome was similar: two drones were correctly detecting the presence of the person (confidence score between 80\% and 90\%) and one drone with a lower confidence (between 50\% and 60\%). Again, setting the confidence threshold to 80\% did not lead to false negatives.\\*
 \subsection{Methodology}
 Our approach 
 %\subsection{Equidistant cameras from different angulations}
 As figure XXX shows, the cameras are pointing in the same direction. Depending on the nature of the object, the detection accuracy is improved in comparison of a single viewpoint prediction. 
 %\subsection{Not equidistant cameras from different angulations}
-
 \section{Results}
 \label{sec:results}
 TOOO

@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.0.0 (MiKTeX 2.9.6100 64-bit)  (format=lualatex 2018.12.9)  22 DEC 2018 15:34
+This is LuaTeX, Version 1.0.0 (MiKTeX 2.9.6100 64-bit)  (format=lualatex 2018.12.9)  22 DEC 2018 16:37
  restricted system commands enabled.
 **Project1.tex
 (./Project1.tex
@@ -1410,14 +1410,14 @@ Non-PDF special ignored!{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
 ]
-<img/setup.png, id=169, 651.93562pt x 309.40594pt>
+<img/setup.png, id=165, 651.93562pt x 309.40594pt>
 File: img/setup.png Graphic file (type png)
  <use img/setup.png>
 Package luatex.def Info: img/setup.png used on input line 66.
 (luatex.def)             Requested size: 227.57922pt x 108.0057pt.
  [2
 
-<./img/setup.png>] <img/person_detection.png, id=192, 289.83281pt x 95.6072pt>
+<./img/setup.png>] <img/person_detection.png, id=188, 289.83281pt x 95.6072pt>
 File: img/person_detection.png Graphic file (type png)
 
 <use img/person_detection.png>
@@ -1427,14 +1427,14 @@ Package luatex.def Info: img/person_detection.png used on input line 116.
 Underfull \vbox (badness 5359) has occurred while \output is active []
 
  [3]
-<img/bottle_detection.png, id=204, 289.83281pt x 96.36pt>
+<img/bottle_detection.png, id=200, 289.83281pt x 96.36pt>
 File: img/bottle_detection.png Graphic file (type png)
 
 <use img/bottle_detection.png>
 Package luatex.def Info: img/bottle_detection.png used on input line 122.
 (luatex.def)             Requested size: 227.57922pt x 75.66333pt.
 
-<img/person_bad_position.png, id=205, 192.72pt x 96.36pt>
+<img/person_bad_position.png, id=201, 192.72pt x 96.36pt>
 File: img/person_bad_position.png Graphic file (type png)
 
 <use img/person_bad_position.png>
@@ -1442,7 +1442,7 @@ Package luatex.def Info: img/person_bad_position.png used on input line 128.
 (luatex.def)             Requested size: 145.26443pt x 72.6315pt.
  [4<./img/person_detection.png><./img/bottle_detection.png><./img/person_bad_pos
 ition.png>]
-<img/protocol_sketch_inter_host.jpg, id=218, 537.50812pt x 317.68687pt>
+<img/protocol_sketch_inter_host.jpg, id=214, 537.50812pt x 317.68687pt>
 File: img/protocol_sketch_inter_host.jpg Graphic file (type jpg)
 
 <use img/protocol_sketch_inter_host.jpg>
@@ -1455,7 +1455,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 182--182
 4/
  []
 
-<img/protocol_sketch_intra_host.jpg, id=224, 478.78876pt x 255.95625pt>
+<img/protocol_sketch_intra_host.jpg, id=220, 478.78876pt x 255.95625pt>
 File: img/protocol_sketch_intra_host.jpg Graphic file (type jpg)
 
 <use img/protocol_sketch_intra_host.jpg>
@@ -1463,7 +1463,7 @@ Package luatex.def Info: img/protocol_sketch_intra_host.jpg used on input line 1
 86.
 (luatex.def)             Requested size: 227.57922pt x 121.66249pt.
  [5<./img/protocol_sketch_inter_host.jpg><./img/protocol_sketch_intra_host.jpg>]
-<img/temporal_sketch.jpg, id=235, 548.0475pt x 427.5975pt>
+<img/temporal_sketch.jpg, id=231, 548.0475pt x 427.5975pt>
 File: img/temporal_sketch.jpg Graphic file (type jpg)
 
 <use img/temporal_sketch.jpg>
@@ -1475,7 +1475,7 @@ Overfull \hbox (9.03374pt too wide) in paragraph at lines 209--210
  []
 
 [6<./img/temporal_sketch.jpg>]
-<img/person_FP_FN.png, id=243, 383.93437pt x 96.36pt>
+<img/person_FP_FN.png, id=239, 383.93437pt x 96.36pt>
 File: img/person_FP_FN.png Graphic file (type png)
 
 <use img/person_FP_FN.png>
@@ -1486,7 +1486,7 @@ Overfull \hbox (9.03374pt too wide) in paragraph at lines 228--229
  [] 
  []
 
-<img/summary_majority_HALF.png, id=246, 1237.2624pt x 627.3036pt>
+<img/summary_majority_HALF.png, id=242, 1237.2624pt x 627.3036pt>
 File: img/summary_majority_HALF.png Graphic file (type png)
 
 <use img/summary_majority_HALF.png>
@@ -1501,7 +1501,7 @@ Overfull \hbox (9.03374pt too wide) in paragraph at lines 235--236
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-<img/summary_majority_THIRD.png, id=247, 1237.2624pt x 627.3036pt>
+<img/summary_majority_THIRD.png, id=243, 1237.2624pt x 627.3036pt>
 File: img/summary_majority_THIRD.png Graphic file (type png)
 
 <use img/summary_majority_THIRD.png>
@@ -1522,6 +1522,10 @@ Underfull \vbox (badness 1365) has occurred while \output is active []
 
  [7<./img/person_FP_FN.png><./img/summary_majority_HALF.png><./img/summary_major
 ity_THIRD.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 255--258
+
+ []
+
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -1533,7 +1537,6 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 301.
 [8
 warning  (pdf backend): ignoring duplicate destination with the name 'cite.IEEEh
 owto:kopka'
@@ -1549,42 +1552,31 @@ owto:kopka'
 
 warning  (pdf backend): ignoring duplicate destination with the name 'cite.IEEEh
 owto:kopka'
-
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 301.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 302.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 302.
  (./Project1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 301.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 301.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 302.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 302.
+Package rerunfilecheck Info: File `Project1.out' has not changed.
+(rerunfilecheck)             Checksum: F3FB0FF002AA9FAD43A87DF4A222D85F;2522.
 
-
-Package rerunfilecheck Warning: File `Project1.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Project1.out':
-(rerunfilecheck)             Before: 7A1A6FA96C1EB76A4B2EA32DF03ED439;2598
-(rerunfilecheck)             After:  F3FB0FF002AA9FAD43A87DF4A222D85F;2522.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 301.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 302.
 )
 
 Here is how much of LuaTeX's memory you used:
- 31091 strings out of 495094
+ 31088 strings out of 495094
  100000,953878 words of node,token memory allocated
- 3310 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 269 glue, 193 kern, 59 glue_spec, 1 write, 2 pdf_ac
+ 3375 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 269 glue, 206 kern, 59 glue_spec, 1 write, 2 pdf_ac
 tion nodes
-   avail lists: 1:1,2:27,3:214,4:50,5:202,6:5646,7:1645,8:90,9:197,10:20,11:541
- 33537 multiletter control sequences out of 65536+200000
+   avail lists: 1:1,2:27,3:184,4:50,5:189,6:5646,7:1645,8:90,9:197,10:20,11:541
+ 33536 multiletter control sequences out of 65536+200000
  163 fonts using 10936711 bytes
  62i,9n,92p,1567b,952s stack positions out of 5000i,500n,10000p,200000b,50000s
-
-warning  (pdf backend): unreferenced destination with name 'section*.11'
-
-warning  (pdf backend): unreferenced destination with name 'subsubsection.4.7.1'
-
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fon
 ts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
@@ -1593,9 +1585,9 @@ nts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><
 C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/
 MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
 ype1/urw/times/utmri8a.pfb>
-Output written on Project1.pdf (8 pages, 972757 bytes).
+Output written on Project1.pdf (8 pages, 973649 bytes).
 
-PDF statistics: 299 PDF objects out of 1000 (max. 8388607)
- 67 named destinations out of 1000 (max. 131072)
- 320 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 296 PDF objects out of 1000 (max. 8388607)
+ 65 named destinations out of 1000 (max. 131072)
+ 312 words of extra memory for PDF output out of 10000 (max. 100000000)
 
