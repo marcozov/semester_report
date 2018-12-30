@@ -42,7 +42,7 @@ TODO: 1-page summary.
 \clearpage{}
 
 \begin{abstract}
-abstract goes here
+Getting advantage of multiple devices in order to solve computer vision related tasks has been a popular choice during the past years. Our main goal is to improve the accuracy of object detection in the context of drone swarms. As additional constraints, we also want to build a system that uses little bandwidth in order to converge to a solution and that can behave as an autonomous entity taking decisions and triggering external events. We implemented a multi-agent system that takes into consideration multiple viewpoints before classifying an object as present or absent. Then, we compared our solution to a single-anget system.
 \end{abstract}
 
 % State of the art: describe the problem and current research.
@@ -56,7 +56,8 @@ Distributed object recognition is a problem that has been studied extensively, u
 Rahimpour \textit{et al.} [\ref{reference3}] have proposed a distributed object recognition system in the context of wireless camera networks. Their approach aims at extracting features from each camera, sending them to a base station, and delegate the whole object recognition phase to this node. The problem with this solution is that a significant amount of bandwidth is consumed -- even if their histogram compression and feature selection framework are based on Sparse Non-negative Matrix Factorization. Furthermore, their approach does not imply any autonomous set of devices that can trigger events.\\*
 Medeiros \textit{et al.} [\ref{reference4}] have proposed an algorithm to aggregate data coming from different cameras and improve object tracking. Their protocol implies using a distributed Kalman filter in order to estimate the position of the object. While this approach is interesting, object tracking is not our goal, since the focus of this project is object detection.\\*
 %Saligrama \textit{et al.} [\ref{reference6}] have proposed an algorithm to reach a MAP (maximum a posteriori) estimate consensus in a peer to peer sensor network.\\*
-Giusti \textit{et al.} [\ref{reference5}] have proposed a mechanism to perform recognition of hand gestures through a statistical classifier and distributed consensus protoco to make the nodes of the network converge to a single decision. The decision process takes into account the quality of the prediction of each node. The quality is defined as the certainty that the predicted hand gesture corresponds to the observed one. This approach is the main source of inspiration for our system, for what concerns the communication and consensus protocol. However, the setup and the goal of their solution differ from ours: they use infrared, they rely on Support Vector Machine (SVM) classifiers, communication, and they aim at classifying an object that they assumed to be there. Instead, we rely on wifi communication, we use neural network models, and we aim at determining whether a specified object is present or absent.
+Giusti \textit{et al.} [\ref{reference5}] have proposed a mechanism to perform recognition of hand gestures through a statistical classifier and distributed consensus protoco to make the nodes of the network converge to a single decision. The decision process takes into account the quality of the prediction of each node. The quality is defined as the certainty that the predicted hand gesture corresponds to the observed one. This approach is the main source of inspiration for our system, for what concerns the communication and consensus protocol. However, the setup and the goal of their solution differ from ours: they use infrared, they rely on Support Vector Machine (SVM) classifiers, communication, and they aim at classifying an object that they assumed to be there. Instead, we rely on wifi communication, we use neural network models, and we aim at determining whether a specified object is present or absent.\\*
+In [\ref{reference6}], they built implemented a swarm-based approach that relies on a cloud system for performing object detection. This requires having a stable internet connection and the possibility of transmitting entire images to another system, which is bandwidth consuming. Also, they did not design a system that emits one final vote based on more the opinion of multiple devices.
 \section{System Setup}
 A general target scenario is the one shown in Figure \ref{fig:setup}.
 %\begin{center}
@@ -83,6 +84,7 @@ Image capture is performed by the OpenMV Cam M7 camera. It easily allows the cap
 %The result of the local prediction of all the nodes is provided to all the other nodes in the network. Then, there is a data aggregation process, during which the nodes agree on the presence or absence of the chosen object.
 %During the development phase, the hosts are reached through ethernet connections. The 
 \section{Object Detection Setup}
+\label{sec:obj_det_setup}
 As already mentioned, we use neural networks in order to perform object detection. Although these models perform better than several classifiers, we cannot use too complex algorithms because execution time can become an issue if we consider that each drone must do continuous predictions in order to keep its opinion up-to-date and that our single-board computers do not have the computational power of state-of-the-art computer clusters. Therefore, the idea is to compensate the lack of state-of-the-art networks (but still performing!) through the presence of several devices trying to detect the same object.\\*
 The same holds for cameras: since we have a swarm we can mount cameras of less quality/weight and still get good performance thanks to the different viewpoints.
 \subsection{Image Acquisition}
@@ -162,7 +164,7 @@ For instance, many approaches make sense if the network is separated in clusters
 We chose the first approach because it is the easiest to implement and it is optimal if there is no packet loss. and there is a direct communication between all the nodes of the network. Since in real systems there are packet losses, and for scalability issues, we switch leader at each round, in order to have some spatial diversity to the network.
 \subsection{Protocol Overview}
 \label{subsec:protooverview}
-Our approach got inspired from the family of consensus protocols Paxos. However, our usage is different from the typical ones, which often aim to reach \textbf{state machine replication}. In fact, we want to get advantage of the hosts' predictions just to determine whether the target object is present or not. As a consequence, many of the constraints of classical consensus protocols are relaxed and do not need to be met. The idea is to define a majority (M) as a fraction of the total number of hosts of the network (N). The majority should express a meaningful lower bound in terms of number positive predictions that are needed in order to trigger a positive final prediction. A high majority implies having less false positives, while a low majority will cause less false negatives. We tested M=N/2+1, which is fair in terms of false positives and false negatives, and M=N/3+1, which favors false positives.
+Our approach got inspired from the family of consensus protocols Paxos. However, our usage is different from the typical ones, which often aim to reach \textbf{state machine replication}. In fact, we want to get advantage of the hosts' predictions just to determine whether the target object is present or not. As a consequence, many of the constraints of classical consensus protocols are relaxed and do not need to be met. The idea is to define a majority (M) as a fraction of the total number of hosts of the network (N). The majority should express a meaningful lower bound in terms of number positive predictions that are needed in order to trigger a positive final prediction. A high majority implies having less false positives, while a low majority will cause less false negatives. We tested M=N/2+1, which is fair in terms of false positives and false negatives, and M=N/3+1, which favors false positives. In theory it would be logical to consider only the former value of M. However, since the models that we are using sometimes fail at detecting true positives with the provided images (as explained in \ref{model:ssd}), it makes sense to have a system that favors positive detections.
 \begin{center}
 	\captionsetup{type=figure}
 	\includegraphics[width=0.47\textwidth]{img/protocol_sketch_inter_host.jpg}
@@ -222,6 +224,12 @@ We separated the two procedures, because with the hardware that we had it was ha
 In order to validate the data fusion mechanism we compared our multi-agent system with the single-host system. The measure that we are using relates to the Precision and the Recall. Since Precision = $\frac{TP}{TP+FP}$ and Recall = $\frac{TP}{TP+FN}$, we need two different scenarios (with the same setup, in order to have consistent conditions) to evaluate them.
 We assumed to be in an ideal environment. This allowed us to consider an arbitrary number of devices in order to compare the two approaches (single-host system and multi-host system). Let N be the number of hosts that we consider in our system. If N=1, we are in the special case of the single-host system. Let K be the number of different views that we consider for our experiments. For each point of view, we captured some pictures with the camera while it was pointing to the object. The predictions of these pictures are aggregated in the same way as the consensus protocol does for the local prediction process.
 The first setup that we evaluated consisted in a clean environment, with only one object. The object could be either what we were looking for, or something else (that could be confused with what we were looking for). In this way, we could compare the two solutions in terms of false positives and false negatives.
+This is how the evaluation occurred:
+\subsubsection*{Single-host system}There are K samples (one per viewpoint), and the precision and recall are computed on the basis of the outcomes of the predictions on these samples, in the two distinct scenarios.
+\subsubsection*{Multi-host system}
+Here, the number of samples (from which precision and recall are derived) depends on N.
+%We started with a clean setup.
+Here, each sample is represented by a set of local predictions from N hosts. This means that for each scenario we have the number of samples that is equal to the combinations of K over N: $\binom{K}{N}$.\\*
 Figure \ref{fig:person_FP_FN} shows two views of the setup that we used in order to validate our method: the camera is positioned 3 meters away from the object, and multiple viewpoints are considered. In this particular setup, 9 different viewpoints are considered, on a range of 180 degrees. This means that the angular distance between two viewpoints is 22.5 degrees.
 \begin{center}
 	\captionsetup{type=figure}
@@ -230,68 +238,77 @@ Figure \ref{fig:person_FP_FN} shows two views of the setup that we used in order
 	\label{fig:person_FP_FN}
 \end{center}
 Figure \ref{fig:person_FP_FN_summary_majority2} and \ref{fig:person_FP_FN_summary_majority3} show the comparison between the single-host system (first row of both figures) and our multi-host system, with M=N/2+1 and M=N/3+1, respectively.
-\begin{center}
-	\captionsetup{type=figure}
-	\includegraphics[width=0.5\textwidth]{img/summary_majority_HALF.png}
+%\begin{center}
+\begin{figure*}
+	%\captionsetup{type=figure}
+	%\includegraphics[width=0.5\textwidth]{img/summary_majority_HALF_BIG.png}
+	\includegraphics[width=\textwidth]{img/summary_majority_HALF_BIG.png}
 	\caption {Majority M = N/2 + 1. This is the number of hosts that need to surpass the threshold with their prediction in order to declare the object as present.}
 	\label{fig:person_FP_FN_summary_majority2}
-\end{center}
-\begin{center}
+\end{figure*}
+%\end{center}
+\begin{figure*}
 	\captionsetup{type=figure}
-	\includegraphics[width=0.5\textwidth]{img/summary_majority_THIRD.png}
+	\includegraphics[width=\textwidth]{img/summary_majority_THIRD_BIG.png}
 	\caption {Majority M = N/3 + 1. This is the number of hosts that need to surpass the threshold with their prediction in order to declare the object as present.}
 	\label{fig:person_FP_FN_summary_majority3}
-\end{center}
+\end{figure*}
 It is interesting to notice that in both cases, under some circumstances, we can find advantages with our approach. The general trend for any system is to have a high precision for high thresholds and a high recall for low thresholds. If a high threshold is picked with the single-host system, we can see that the recalls starts degrading as soon as the threshold goes over 0.2 and 0.3, which are pretty low values. The same reasoning can be done if we decide to pick a low threshold: the recall will benefit from this choice, but the precision is very low for threshold values below 0.3.
 If we compare this with the multi-host approach, we can see that the choice of the threshold can be more flexible. In fact, if we pick any threshold, we can see that if the number of hosts in the system is appropriate, we can improve the precision (recall) without degrading the recall (precision) too much.
-For instance, if our threshold is 0.4, the single-host system will have a high precision. However, if N=1 we can see that the recall is degraded. If we pick a higher N (e.g. N=3), we can see that the recall still has an acceptable value **TODO: specify some more details (numbers) instead of "acceptable" and create the plots again (to make the more readable).
-\subsubsection{Single-host system}There are K samples (one per viewpoint), and the precision and recall are computed on the basis of the outcomes of the predictions on these samples, in the two distinct scenarios.
-\subsubsection{Multi-host system}
-Here, the number of samples (from which precision and recall are derived) depends on N.
-We started with a clean setup, sketched in figure XXX (TODO: put an image that shows the setup.
-Here, each sample is represented by a set of local predictions from N hosts. This means that for each scenario we have the number of samples that is equal to the combinations of K over N: $\binom{K}{N}$.\\*
-
+For instance, if our threshold is 0.4, the single-host system will have a high precision. However, if N=1 we can see that the recall is degraded. If we pick a higher N (e.g. N=6), we can see that the recall has a higher value.
 \subsection{Communication and Consensus Test}
 In order to test the communication and the convergence of the consensus protocol, we used a setup like the one shown in figure \ref{fig:setup}: there are three drones that point at the center, and they are trying to detect a person. We aim at showing that having a minority of devices (one out three, in this case) that has a non-optimal viewpoint does not impact on the correctness of the system's output.\\*
 We firstly put a chair instead of a person, and we saw that two out of three devices detected the absence of a person quite accurately: their confidence score was around 10\%. The third drone's confidence score fluctuated between 30\% and 40\%. During the experiments, we saw that the system was accurately detecting the person as absent although a threshold of 25\% was being used: no false positives.\\*
 The same procedure was followed again, but with a person with outstretched arms, and the outcome was similar: two drones were correctly detecting the presence of the person (confidence score between 80\% and 90\%) and one drone with a lower confidence (between 50\% and 60\%). Again, setting the confidence threshold to 80\% did not lead to false negatives.\\*
-\subsection{Methodology}
-Our approach 
+%\subsection{Methodology}
+%Our approach 
 %\subsection{Equidistant cameras from different angulations}
-As figure XXX shows, the cameras are pointing in the same direction. Depending on the nature of the object, the detection accuracy is improved in comparison of a single viewpoint prediction. 
+%As figure XXX shows, the cameras are pointing in the same direction. Depending on the nature of the object, the detection accuracy is improved in comparison of a single viewpoint prediction. 
 %\subsection{Not equidistant cameras from different angulations}
 \section{Results}
 \label{sec:results}
-TOOO
+Here we further discuss the results that we described in the previous section. We can notice that our system, under some conditions, provides better results than a single-host system. In particular, for both the majority values that we tested we had improvements in terms of precision and recall. The best overall performance is obtained with M=N/3+1. The main reason, as already mentioned, is that the models that we are using have more recall issues than precision's, i.e. in general there are more false negatives than false positives.\\*
+It can be noticed that there are some cases in which precision and recall fall to 0. This numerical issue is caused by the limited amount of data that we have: we just used 9 different positions for our experimental setup. This implies that if there are not enough optimal views, once the number of hosts that participate in the system is sufficiently high, the majority cannot be reached in any way. This is what happened in our case: among the 9 views that we used for the data fusion validation phase, only 3 of them see a person with more than 90\% as confidence score. This is why for N \textgreater= 6 and M \textgreater= 4 (M=N/2+1), precision and recall will always be 0. Similarly, if M=N/3+1, this will occur for N \textgreater= 8.
 \section{Conclusion}
 \label{sec:conclusion}
-TODO
+We implemented a system that is able to improve object detection accuracy, by getting advantage of multiple views of objects. Our solution is easy to implement, mantain, and extend.
+\\*Part of the future work relates to the integration of different models, for object detection, in our system. As mentioned in section \ref{sec:obj_det_setup}, re-training the model for specific applications may improve performance significantly.\\*
+Additional improvements could be done on the communication protocol: it would be interesting to extend the system to have independent clusters of devices within the same network. This would imply implementing some kind of distributed routing protocol.
 \begin{thebibliography}{1}
 \bibitem{IEEEhowto:kopka}
 \label{reference0}
-Shaoqing Ren, Kaiming He, Ross Girshick, and Jian Sun \emph{Faster R-CNN: Towards Real-Time Object
+S. Ren, K. He, R. Girshick, and J. Sun \emph{Faster R-CNN: Towards Real-Time Object
 Detection with Region Proposal Networks}, June 2015.
 \vspace*{-0.8\baselineskip}
 \bibitem{IEEEhowto:kopka}
 \label{reference1}
-Wei Liu, Dragomir Anguelov, Dumitru Erhan, Christian Szegedy, Scott Reed, Cheng-Yang Fu, and Alexander C. Berg \emph{SSD: Single Shot MultiBox Detector}, December 2016.
+W. Liu, D. Anguelov, D. Erhan, C. Szegedy, S. Reed, C. Fu, and A. C. Berg \emph{SSD: Single Shot MultiBox Detector}, December 2016.
 \vspace*{-0.8\baselineskip}
-\vspace*{-0.8\baselineskip}
+%\vspace*{-0.8\baselineskip}
 \bibitem{IEEEhowto:kopka}
 \label{reference2}
-Andrew G. Howard, Menglong Zhu, Bo Chen, Dmitry Kalenichenko, Weijun Wang, Tobias Weyand, Marco Andreetto, and Hartwig Adam \emph{MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications}, April 2017.
+A. G. Howard, M. Zhu, B. Chen, D. Kalenichenko, W. Wang, T. Weyand, M. Andreetto, and H. Adam \emph{MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications}, April 2017.
 \vspace*{-0.8\baselineskip}
 \bibitem{IEEEhowto:kopka}
 \label{reference3}
-Alireza Rahimpour, Ali Taalimi, Jiajia Luo, and Hairong Qi , \emph{Distributed Object Recognition in Smart Camera Networks}, 2016.
+A. Rahimpour, A. Taalimi, J. Luo, and H. Qi , \emph{Distributed Object Recognition in Smart Camera Networks}, 2016.
 \vspace*{-0.8\baselineskip}
 \bibitem{IEEEhowto:kopka}
 \label{reference4}
-Henry Medeiros, Johnny Park, and Avinash C. Kak, \emph{Distributed Object Tracking Using a Cluster-Based Kalman Filter in Wireless Camera Networks}, b.
+H. Medeiros, J. Park, and A. C. Kak, \emph{Distributed Object Tracking Using a Cluster-Based Kalman Filter in Wireless Camera Networks}, 2008.
 \vspace*{-0.8\baselineskip}
 \bibitem{IEEEhowto:kopka}
 \label{reference5}
-Alessandro Giusti, Jawad Nagi, Luca Gambardella, and Gianni A. Di Caro, \emph{Cooperative Sensing and Recognition by a Swarm of Mobile Robots},  a.
+A. Giusti, J. Nagi, L. Gambardella, and G. A. Di Caro, \emph{Cooperative Sensing and Recognition by a Swarm of Mobile Robots}, 2012.
+\vspace*{-0.8\baselineskip}
+\bibitem{IEEEhowto:kopka}
+\label{reference6}
+J. Lee, J. Wang, D. Crandall, S. Sabanovic and G. Fox, \emph{Real-Time Object Detection for Unmanned Aerial Vehicles based on Cloud-based Convolutional Neural Networks}, 2017.
+\vspace*{-0.8\baselineskip}
+\bibitem{IEEEhowto:kopka}
+\label{reference7}
+T. Mirzayans, N. Parimi, P. Pilarski, C. Backhouse, L. Wyard-Scott, and P. Musilek, \emph{A Swarm-based System for Object Recognition}, 2005.
+
 %\bibitem{IEEEhowto:kopka}
 %\vspace*{-0.8\baselineskip}
 %\label{reference6}
