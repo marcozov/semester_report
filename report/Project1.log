@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.0.0 (MiKTeX 2.9.6100 64-bit)  (format=lualatex 2018.12.9)  3 JAN 2019 00:34
+This is LuaTeX, Version 1.0.0 (MiKTeX 2.9.6100 64-bit)  (format=lualatex 2018.12.9)  9 JAN 2019 04:00
  restricted system commands enabled.
 **Project1.tex
 (./Project1.tex
@@ -1317,6 +1317,12 @@ LaTeX Warning: Label `IEEEhowto:kopka' multiply defined.
 
 LaTeX Warning: Label `IEEEhowto:kopka' multiply defined.
 
+
+LaTeX Warning: Label `IEEEhowto:kopka' multiply defined.
+
+
+LaTeX Warning: Label `IEEEhowto:kopka' multiply defined.
+
 )
 \openout1 = Project1.aux
 
@@ -1434,36 +1440,36 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-<zoveralliprojectdescription.pdf, id=142, 597.51233pt x 845.0471pt>
+<zoveralliprojectdescription.pdf, id=142, 597.432pt x 844.5954pt>
 File: zoveralliprojectdescription.pdf Graphic file (type pdf)
 
 <use zoveralliprojectdescription.pdf>
 Package luatex.def Info: zoveralliprojectdescription.pdf used on input line 43.
-(luatex.def)             Requested size: 597.51086pt x 845.04504pt.
+(luatex.def)             Requested size: 597.43054pt x 844.59334pt.
 File: zoveralliprojectdescription.pdf Graphic file (type pdf)
  <use zoveralliprojectdescription.pdf>
 Package luatex.def Info: zoveralliprojectdescription.pdf used on input line 43.
-(luatex.def)             Requested size: 597.51086pt x 845.04504pt.
+(luatex.def)             Requested size: 597.43054pt x 844.59334pt.
 
-<zoveralliprojectdescription.pdf, id=145, page=1, 597.51233pt x 845.0471pt>
+<zoveralliprojectdescription.pdf, id=145, page=1, 597.432pt x 844.5954pt>
 File: zoveralliprojectdescription.pdf Graphic file (type pdf)
 
 <use zoveralliprojectdescription.pdf, page 1>
 Package luatex.def Info: zoveralliprojectdescription.pdf, page1 used on input li
 ne 43.
-(luatex.def)             Requested size: 597.51086pt x 845.04504pt.
+(luatex.def)             Requested size: 597.43054pt x 844.59334pt.
 File: zoveralliprojectdescription.pdf Graphic file (type pdf)
 
 <use zoveralliprojectdescription.pdf, page 1>
 Package luatex.def Info: zoveralliprojectdescription.pdf, page1 used on input li
 ne 43.
-(luatex.def)             Requested size: 597.51086pt x 845.04504pt.
+(luatex.def)             Requested size: 597.43054pt x 844.59334pt.
 File: zoveralliprojectdescription.pdf Graphic file (type pdf)
 
 <use zoveralliprojectdescription.pdf, page 1>
 Package luatex.def Info: zoveralliprojectdescription.pdf, page1 used on input li
 ne 43.
-(luatex.def)             Requested size: 597.51086pt x 845.04504pt.
+(luatex.def)             Requested size: 597.43054pt x 844.59334pt.
 
 ! Undefined control sequence.
 \@outputdblcol ...}}\@combinedblfloats \@setmarks 
@@ -1480,7 +1486,7 @@ File: zoveralliprojectdescription.pdf Graphic file (type pdf)
 <use zoveralliprojectdescription.pdf, page 1>
 Package luatex.def Info: zoveralliprojectdescription.pdf, page1 used on input li
 ne 43.
-(luatex.def)             Requested size: 597.51086pt x 845.04504pt.
+(luatex.def)             Requested size: 597.43054pt x 844.59334pt.
  [1
 Non-PDF special ignored!
 
@@ -1489,117 +1495,124 @@ pdftex.map}
 
 
 ]
-<img/setup.png, id=175, 651.93562pt x 309.40594pt>
+<img/setup.png, id=177, 651.93562pt x 309.40594pt>
 File: img/setup.png Graphic file (type png)
  <use img/setup.png>
-Package luatex.def Info: img/setup.png used on input line 73.
+Package luatex.def Info: img/setup.png used on input line 80.
 (luatex.def)             Requested size: 227.57922pt x 108.0057pt.
- [3
 
-<./img/setup.png>] [4] <img/person_detection.png, id=207, 289.83281pt x 95.6072
-pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[3
+
+] [4<./img/setup.png>]
+<img/person_detection.png, id=209, 289.83281pt x 95.6072pt>
 File: img/person_detection.png Graphic file (type png)
 
 <use img/person_detection.png>
-Package luatex.def Info: img/person_detection.png used on input line 124.
+Package luatex.def Info: img/person_detection.png used on input line 131.
 (luatex.def)             Requested size: 227.57922pt x 75.07222pt.
 
-<img/bottle_detection.png, id=208, 289.83281pt x 96.36pt>
+<img/bottle_detection.png, id=210, 289.83281pt x 96.36pt>
 File: img/bottle_detection.png Graphic file (type png)
 
 <use img/bottle_detection.png>
-Package luatex.def Info: img/bottle_detection.png used on input line 130.
+Package luatex.def Info: img/bottle_detection.png used on input line 137.
 (luatex.def)             Requested size: 227.57922pt x 75.66333pt.
 
-<img/person_bad_position.png, id=209, 192.72pt x 96.36pt>
+<img/person_bad_position.png, id=211, 192.72pt x 96.36pt>
 File: img/person_bad_position.png Graphic file (type png)
 
 <use img/person_bad_position.png>
-Package luatex.def Info: img/person_bad_position.png used on input line 136.
+Package luatex.def Info: img/person_bad_position.png used on input line 143.
 (luatex.def)             Requested size: 145.26443pt x 72.6315pt.
  [5<./img/person_detection.png><./img/bottle_detection.png><./img/person_bad_pos
 ition.png>]
-<img/protocol_sketch_inter_host.jpg, id=225, 556.32843pt x 322.20375pt>
+
+! LaTeX Error: \begin{enumerate} on input line 174 ended by \end{itemize}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.178 \end{itemize}
+                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+<img/protocol_sketch_inter_host.jpg, id=228, 556.32843pt x 322.20375pt>
 File: img/protocol_sketch_inter_host.jpg Graphic file (type jpg)
 
 <use img/protocol_sketch_inter_host.jpg>
 Package luatex.def Info: img/protocol_sketch_inter_host.jpg used on input line 1
-76.
+90.
 (luatex.def)             Requested size: 227.57922pt x 131.80449pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 191--191
+ [6<./img/protocol_sketch_inter_host.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 205--205
 [][][][]\OT1/ptm/m/n/8 Chan-nels: []$https://www.sohamkamani.com/blog/2017/08/2
 4/
  []
 
-[6<./img/protocol_sketch_inter_host.jpg>]
-<img/protocol_sketch_intra_host.jpg, id=240, 478.78876pt x 255.95625pt>
+<img/protocol_sketch_intra_host.jpg, id=244, 478.78876pt x 255.95625pt>
 File: img/protocol_sketch_intra_host.jpg Graphic file (type jpg)
 
 <use img/protocol_sketch_intra_host.jpg>
-Package luatex.def Info: img/protocol_sketch_intra_host.jpg used on input line 1
-95.
+Package luatex.def Info: img/protocol_sketch_intra_host.jpg used on input line 2
+09.
 (luatex.def)             Requested size: 227.57922pt x 121.66249pt.
 
-<img/temporal_sketch.jpg, id=242, 548.0475pt x 427.5975pt>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7<./img/protocol_sketch_intra_host.jpg>]
+<img/temporal_sketch.jpg, id=256, 548.0475pt x 427.5975pt>
 File: img/temporal_sketch.jpg Graphic file (type jpg)
 
 <use img/temporal_sketch.jpg>
-Package luatex.def Info: img/temporal_sketch.jpg used on input line 219.
+Package luatex.def Info: img/temporal_sketch.jpg used on input line 233.
 (luatex.def)             Requested size: 242.10493pt x 188.8938pt.
 
-Overfull \hbox (9.03374pt too wide) in paragraph at lines 219--220
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 233--234
  [] 
  []
 
-
-Underfull \vbox (badness 6284) has occurred while \output is active []
-
- [7<./img/protocol_sketch_intra_host.jpg>]
-<img/person_FP_FN.png, id=253, 383.93437pt x 96.36pt>
+[8<./img/temporal_sketch.jpg>]
+<img/person_FP_FN.png, id=270, 383.93437pt x 96.36pt>
 File: img/person_FP_FN.png Graphic file (type png)
 
 <use img/person_FP_FN.png>
-Package luatex.def Info: img/person_FP_FN.png used on input line 246.
+Package luatex.def Info: img/person_FP_FN.png used on input line 260.
 (luatex.def)             Requested size: 242.10493pt x 60.76445pt.
 
-Overfull \hbox (9.03374pt too wide) in paragraph at lines 246--247
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 260--261
  [] 
  []
 
-<img/summary_majority_HALF_BIG.png, id=256, 1469.49pt x 785.93625pt>
+<img/summary_majority_HALF_BIG.png, id=273, 1469.49pt x 785.93625pt>
 File: img/summary_majority_HALF_BIG.png Graphic file (type png)
 
 <use img/summary_majority_HALF_BIG.png>
-Package luatex.def Info: img/summary_majority_HALF_BIG.png used on input line 25
-5.
+Package luatex.def Info: img/summary_majority_HALF_BIG.png used on input line 26
+9.
 (luatex.def)             Requested size: 484.20988pt x 258.976pt.
 
-<img/summary_majority_THIRD_BIG.png, id=257, 1463.4675pt x 773.89125pt>
+<img/summary_majority_THIRD_BIG.png, id=274, 1463.4675pt x 773.89125pt>
 File: img/summary_majority_THIRD_BIG.png Graphic file (type png)
 
 <use img/summary_majority_THIRD_BIG.png>
 Package luatex.def Info: img/summary_majority_THIRD_BIG.png used on input line 2
-62.
+76.
 (luatex.def)             Requested size: 484.20988pt x 256.05798pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 270--278
-
- []
-
-[8<./img/temporal_sketch.jpg><./img/person_FP_FN.png>] [9<./img/summary_majority
-_HALF_BIG.png><./img/summary_majority_THIRD_BIG.png>]
-LaTeX Font Info:    Try loading font information for OML+ptm on input line 281.
+LaTeX Font Info:    Try loading font information for OML+ptm on input line 296.
 
 ("C:/Program Files/MiKTeX 2.9/tex/latex/psnfss/omlptm.fd"
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 281.
-
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 296.
+ [9<./img/person_FP_FN.png>] [10<./img/summary_majority_HALF_BIG.png><./img/summ
+ary_majority_THIRD_BIG.png>]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -1611,7 +1624,8 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[10
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 353.
+[11
 warning  (pdf backend): ignoring duplicate destination with the name 'cite.IEEEh
 owto:kopka'
 
@@ -1632,31 +1646,37 @@ owto:kopka'
 
 warning  (pdf backend): ignoring duplicate destination with the name 'cite.IEEEh
 owto:kopka'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'cite.IEEEh
+owto:kopka'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'cite.IEEEh
+owto:kopka'
+
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 329.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 329.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 353.
  (./Project1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 329.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 329.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 353.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 353.
 Package rerunfilecheck Info: File `Project1.out' has not changed.
-(rerunfilecheck)             Checksum: 7E1317492D4E5EB8F26C93BC94A3ACE0;2303.
+(rerunfilecheck)             Checksum: 227F97555427BFC58B4C9462D871B50C;2351.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 329.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 353.
 )
 
 Here is how much of LuaTeX's memory you used:
- 31786 strings out of 495094
+ 31791 strings out of 495094
  100000,953878 words of node,token memory allocated
- 3443 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 263 glue, 228 kern, 59 glue_spec, 1 write, 2 pdf_ac
+ 3716 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 287 glue, 249 kern, 59 glue_spec, 1 write, 2 pdf_ac
 tion nodes
-   avail lists: 1:1,2:33,3:210,4:50,5:214,6:6768,7:1652,8:92,9:239,10:20,11:666
- 34158 multiletter control sequences out of 65536+200000
+   avail lists: 1:1,2:33,3:196,4:42,5:213,6:7978,7:1516,8:83,9:202,10:19,11:780
+ 34160 multiletter control sequences out of 65536+200000
  165 fonts using 11019255 bytes
- 62i,18n,92p,1568b,952s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,18n,92p,1595b,918s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fon
 ts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
@@ -1666,9 +1686,9 @@ sy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Progra
 m Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.
 9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/
 times/utmri8a.pfb>
-Output written on Project1.pdf (10 pages, 1107505 bytes).
+Output written on Project1.pdf (11 pages, 1143598 bytes).
 
-PDF statistics: 322 PDF objects out of 1000 (max. 8388607)
- 67 named destinations out of 1000 (max. 131072)
+PDF statistics: 334 PDF objects out of 1000 (max. 8388607)
+ 70 named destinations out of 1000 (max. 131072)
  288 words of extra memory for PDF output out of 10000 (max. 100000000)
 

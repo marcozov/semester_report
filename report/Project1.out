@@ -11,9 +11,9 @@
 \BOOKMARK [3][-]{subsubsection.3.1.2}{Frame size}{subsection.3.1}% 11
 \BOOKMARK [2][-]{subsection.3.2}{Model Selection and Preliminary Object Detection Tests}{section.3}% 12
 \BOOKMARK [3][-]{subsubsection.3.2.1}{SSD Mobilenet}{subsection.3.2}% 13
-\BOOKMARK [3][-]{subsubsection.3.2.2}{Faster RCNN}{subsection.3.2}% 14
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Faster R-CNN \(Region Convolutional Neural Network}{subsection.3.2}% 14
 \BOOKMARK [2][-]{subsection.3.3}{Measures of Interest}{section.3}% 15
-\BOOKMARK [1][-]{section.4}{Design}{}% 16
+\BOOKMARK [1][-]{section.4}{Proposed System}{}% 16
 \BOOKMARK [2][-]{subsection.4.1}{Consensus Protocol}{section.4}% 17
 \BOOKMARK [2][-]{subsection.4.2}{Protocol Overview}{section.4}% 18
 \BOOKMARK [2][-]{subsection.4.3}{Prediction Obtainment and Inter-process communication}{section.4}% 19
