@@ -41,20 +41,26 @@
 
 
 \includepdf[noautoscale]{zoveralliprojectdescription}
-
+\onecolumn
 \maketitle
-TODO: 1-page summary.
+
+%\section{Name}
+Getting advantage of multiple devices in order to solve computer vision-related tasks has been a popular choice during the past years. Our main goal is to improve the accuracy of object detection in the context of drone swarms. 
+The massive deployment of drones in next generation mobile networks like 5G calls for an efficient bandwidth usage, which is particularly important in the case of multiple co-located drones such as in drone swarms. For this reason we aim at developing a system that minimizes bandwidth usage while enhancing over a single-drone object recognition system.
+We implemented a low-complexity and bandwidth-efficient multi-agent system that takes into consideration the multiple viewpoints and uses them to detect the presence or absence of a target object. We successfully tested the system from the image capture to the intra-swarm communication and data fusion and compared our solution to a single-angent system. Our test results show that the performance of the proposed system in terms of \emph{precision} and \emph{recall} quickly improves with the number of drones while keeping complexity and bandwidth usage low, thus helping scalability.
+\begin{figure}
+	\captionsetup{type=figure}
+	\includegraphics[width=0.7\textwidth]{img/summary_majority_THIRD_N1_5_CONNECTED.png}
+\end{figure}
 \clearpage{}
 
-
+\twocolumn
 \begin{abstract}
 Getting advantage of multiple devices in order to solve computer vision-related tasks has been a popular choice during the past years. Our main goal is to improve the accuracy of object detection in the context of drone swarms. 
 %As additional constraints, we also want to build 
 The massive deployment of drones in next generation mobile networks like 5G calls for an efficient bandwidth usage, which is particularly important in the case of multiple co-located drones such as in drone swarms. For this reason we aim at developing a system that minimizes bandwidth usage while enhancing over a single-drone object recognition system.
-% in order to converge to a solution and that can behave as an autonomous entity taking decisions and triggering external events.
  We implemented a low-complexity and bandwidth-efficient multi-agent system that takes into consideration the multiple viewpoints and uses them to detect the presence or absence of a target object. We successfully tested the system from the image capture to the intra-swarm communication and data fusion and compared our solution to a single-angent system. Our test results show that the performance of the proposed system in terms of \emph{precision} and \emph{recall} quickly improves with the number of drones while keeping complexity and bandwidth usage low, thus helping scalability.
 \end{abstract}
-
 % State of the art: describe the problem and current research.
 \section{Introduction}
 Object detection can sometimes suffer from non-optimal viewpoints of cameras or low cameras quality. For instance, if an obstruction hides important features of an image that represents a certain object or if an object which is similar to the target one is present in the scene, the prediction could be wrong, i.e.,  false positives and false negatives can occur. The goal of this project is to improve object recognition in the context of drones swarms, in terms of precision and recall measures. In particular, we aim at improving a system that, given a specific object, determines the presence/absence of this object.
@@ -184,23 +190,26 @@ For instance, many of such systems require a clustering algorithm, which adds co
 We chose the first approach because of its ease of implementation and it is optimal if there is no packet loss. Since in real systems there are packet losses, and for scalability issues, we switch leader at each round, in order to have some spatial diversity in the network.
 \subsection{Protocol Overview}
 \label{subsec:protooverview}
-Our approach got inspired from the family of consensus protocols Paxos. However, our usage is different from the typical ones, which often aim to reach \textbf{state machine replication}. In fact, we want to get advantage of the hosts' predictions just to determine whether the target object is present or not. As a consequence, many of the constraints of classical consensus protocols are relaxed and do not need to be met. The idea is to define a majority (M) as a fraction of the total number of hosts of the network (N). The majority should express a meaningful lower bound in terms of number positive predictions that are needed in order to trigger a positive final prediction. A high majority implies having less false positives, while a low majority will cause less false negatives. We tested M=N/2+1, which is fair in terms of false positives and false negatives, and M=N/3+1, which favors false positives. In theory it would be logical to consider only the former value of M. However, since the models that we are using sometimes fail at detecting true positives with the provided images (as explained in \ref{model:ssd}), it makes sense to have a system that favors positive detections.
+Our approach got inspired from the family of consensus protocols Paxos \ref{reference10}. However, our usage is different from the typical ones, which often aim to reach \textbf{state machine replication}. In fact, we want to get advantage of the hosts' predictions just to determine whether the target object is present or not. As a consequence, many of the constraints of classical consensus protocols are relaxed and do not need to be met. The idea is to define a majority (M) as a fraction of the total number of hosts of the network (N). The majority should express a meaningful lower bound in terms of number positive predictions that are needed in order to trigger a positive final prediction. A high majority implies having less false positives, while a low majority will cause less false negatives. We tested M=N/2+1, which is fair in terms of false positives and false negatives, and M=N/3+1, which favors false positives.
+%In theory it would be logical to consider only the former value of M.
+Fairness in terms of false positives and negatives (M=N/2+1) would seem the natural choice.
+However, since the models that we are using sometimes fail at detecting true positives with the provided images (as explained in \ref{model:ssd}), it makes sense to have a system that favors positive detections.
 \begin{center}
 	\captionsetup{type=figure}
 	\includegraphics[width=0.47\textwidth]{img/protocol_sketch_inter_host.jpg}
 	\caption {Inter-host communication}
 	\label{fig:inter_host}
 \end{center}
-The decision process takes place in rounds: during a round the leader must take a decision that is based on its local prediction and the other hosts' predictions. The leader probes all the other hosts in order to receive their predictions: the transmission of the probe message is repeated periodically (T\textsubscript{probe}) in order to mitigate the impact packet losses. Each host (including the leader) has a timeout (T\textsubscript{timeout}) after which it declares the object as absent (for that round) and it advances to the next round. T\textsubscript{timeout} = K * T\textsubscript{probe}. The leader advances to the next round after a decision for the current round is taken. This implies three cases:
+The decision process takes place in rounds: during a round the leader must take a decision that is based on its local prediction and the other hosts' predictions. The leader probes all the other hosts in order to receive their predictions: the transmission of the probe message is repeated periodically (T\textsubscript{probe}) in order to mitigate the impact of packet losses. Each host (including the leader) has a timeout (T\textsubscript{timeout}) after which, if not enough messages are received, it declares the object as absent (for that round) and it advances to the next round. The timeout period is taken as a multiple of the probe period, i.e., T\textsubscript{timeout} = K * T\textsubscript{probe}. The leader advances to the next round after either a decision for the current round is taken or the timer expires. This implies three cases:
 \begin{itemize}
-\item Timeout: the object is declared as absent for that round. This occurs if not enough positive predictions are received or if not all predictions are received
+\item Timeout: the object is declared as absent for that round. This occurs if not enough positive predictions are received, either because some message was lost or because the received votes are negative.
 \item Predictions from all hosts are received, but there is no positive majority: the object is declared as absent for that round.
 \item A majority of positive predictions is received: the object is declared as present for that round.
 \end{itemize}
 A sketch of the protocol is shown in figure \ref{fig:inter_host}.
 \subsection{Prediction Obtainment and Inter-process communication}Once the image is captured by the camera, it is immediately transferred to the Odroid, which allows the usage of Linux and the Tensorflow library. This has a set of benefits, including a broad flexibility in terms of choice of object detection models and language for inter-host communication.\\*
 Figure \ref{fig:intra_host} summarizes the computations that occur within a single host.
-First, the Odroid takes care of performing object detection. This model runs over a Python process, which uses Tensorflow. Then, we decided to separate the communication phase and to have another process handling it.
+First, the Odroid takes care of performing object detection. This algorithm runs over a Python process, which uses Tensorflow. In order to favor modularity and scalability, we decided to separate the communication phase and to have another process handling it.
 Therefore, the prediction is forwarded to a Go process, which takes care of handling any kind of communication with the other hosts. The local communication occurs via a UNIX socket \footnote{\url{http://man7.org/linux/man-pages/man2/socket.2.html}}, which is a simple and reliable way to do inter-process communication. The communication with the rest of the networks occurs via UDP.\\*
 The reason behind Go's usage is that this language is much more robust, flexible and scalable than Python, and its concurrency \footnote{Channels: \url{https://www.sohamkamani.com/blog/2017/08/24/golang-channels-explained/}} and networking features make it an excellent choice for building any kind of distributed system.
 %The Odroid takes care of performing object detection, through a model \ref{model:ssd} that runs over a Python process. This prediction is then forwarded to a Go process, that takes care of handling any kind of communication with the other hosts. The reason behind this choice is that Go is much more robust, flexible and scalable than Python, and its concurrency and networking features make it an excellent choice for building any kind of distributed system. This is summarized in figure :
@@ -230,7 +239,7 @@ The final prediction is propagated to a base station, and the leader does not ad
 If we assume that all the nodes have good reachability with each other, it is not important who the leader is. Instead, it is important that the whole swarm does not rely always on the same node to be the leader, in order to avoid a single point of failure. For this reason, the leader is simply determined by the Round ID: each leader has a Node ID, and at round i, the leader is the node with Node ID = i \% N, where N is the number of hosts in our network.
 \begin{center}
 	\captionsetup{type=figure}
-	\includegraphics[width=0.5\textwidth]{img/temporal_sketch.jpg}
+	\includegraphics[width=0.5\textwidth]{img/temporal_sketch_NEW.jpg}
 	\caption {Example of execution of one round of the protocol, without packet losses.}
 	\label{fig:temporal_sketch}
 \end{center}
@@ -243,41 +252,52 @@ Our experiments aim to validate different aspects of our solution:
 \item data fusion mechanism
 \item communication for the consensus protocol convergence
 \end{itemize}
-We separated the two procedures, because with the hardware that we had it was hard to fully validate the protocol on a real setup.
+We separated the two procedures, in order to have a cleaner assessment of the system performance.
 \subsection{Data Fusion Validation}
-In order to validate the data fusion mechanism we compared our multi-agent system with the single-host system. The measure that we are using relates to the Precision and the Recall. Since Precision = $\frac{TP}{TP+FP}$ and Recall = $\frac{TP}{TP+FN}$, we need two different scenarios (with the same setup, in order to have consistent conditions) to evaluate them.
-We assumed to be in an ideal environment. This allowed us to consider an arbitrary number of devices in order to compare the two approaches (single-host system and multi-host system). Let N be the number of hosts that we consider in our system. If N=1, we are in the special case of the single-host system. Let K be the number of different views that we consider for our experiments. For each point of view, we captured some pictures with the camera while it was pointing to the object. The predictions of these pictures are aggregated in the same way as the consensus protocol does for the local prediction process.
+In order to validate the data fusion mechanism we compared our multi-agent system with the single-host system. The measure that we are using relates to the Precision and the Recall. Since Precision = $\frac{TP}{TP+FP}$ and Recall = $\frac{TP}{TP+FN}$ \footnote{TP are the true positives, FP are the false positives and FN are the false negatives}, we need two different scenarios (with the same setup, in order to have consistent conditions) to evaluate them.
+We assumed to have ideal communications, i.e., no packet losses. This allowed us to consider an arbitrary number of devices in order to compare the two approaches (single-host system and multi-host system). Let N be the number of hosts that we consider in our system. If N=1, we are in the special case of the single-host system. Let K be the number of different views that we consider for our experiments. For each point of view, we captured some pictures with the camera while it was pointing to the object. The predictions of these pictures are aggregated in the same way as the consensus protocol does for the local prediction process. Specifically, for each picture a confidence score is generated. If the score is above a given threshold, the drone votes in favor of the object being present. Otherwise a negative vote is sent to the leader. More considerations on the thresholds are presented in the following.
 In our clean environment, the object could be either what we were looking for, or something else (that could be confused with what we were looking for). In this way, we could compare the two solutions in terms of false positives and false negatives.
-This is how the evaluation occurred:
+This is how the evaluation was performed:
 \subsubsection*{Single-host system}There are K samples (one per viewpoint), and the precision and recall are computed on the basis of the outcomes of the predictions on these samples, in the two distinct scenarios.
 \subsubsection*{Multi-host system}
+\label{sub:multihost}
 Here, the number of samples (from which precision and recall are derived) depends on N.
 %We started with a clean setup.
 Here, each sample is represented by a set of local predictions from N hosts. This means that for each scenario we have the number of samples that is equal to the combinations of K over N: $\binom{K}{N}$.\\*
 Figure \ref{fig:person_FP_FN} shows two views of the setup that we used in order to validate our method: the camera is positioned 3 meters away from the object, and multiple viewpoints are considered. In this particular setup, 9 different viewpoints are considered, on a range of 180 degrees. This means that the angular distance between two viewpoints is 22.5 degrees.
 \begin{center}
+\begin{figure}
 	\captionsetup{type=figure}
 	\includegraphics[width=0.5\textwidth]{img/person_FP_FN.png}
 	\caption {Setup: we are investigating the presence/absence of a person. In the two leftmost images, a chair is misclassified as a person. In the two rightmost images, a person is not recognized too well.}
 	\label{fig:person_FP_FN}
+\end{figure}
 \end{center}
-Figure \ref{fig:person_FP_FN_summary_majority2} and \ref{fig:person_FP_FN_summary_majority3} show the comparison between the single-host system (first row of both figures) and our multi-host system in the ideal environment, with M=N/2+1 and M=N/3+1, respectively.
+Figure \ref{fig:person_FP_FN_summary_majority2} and \ref{fig:person_FP_FN_summary_majority3} show the comparison between the single-host system and our multi-host system in the ideal environment, with M=N/2+1 and M=N/3+1, respectively.
 %\begin{center}
+\begin{figure}
+	%\captionsetup{type=figure}
+	%\includegraphics[width=0.5\textwidth]{img/summary_majority_HALF_BIG.png}
+%	\includegraphics[width=\textwidth]{img/summary_majority_HALF_BIG.png}
+	\includegraphics[width=0.5\textwidth]{img/summary_majority_HALF_N1_5_CONNECTED.png}
+	\caption {Majority M = N/2 + 1. This is the number of hosts that need to surpass the threshold with their prediction in order to declare the object as present.}
+	\label{fig:person_FP_FN_summary_majority2}
+\end{figure}
+%\end{center}
+\begin{figure}
+	\captionsetup{type=figure}
+	\includegraphics[width=0.5\textwidth]{img/summary_majority_THIRD_N1_5_CONNECTED.png}
+	\caption {Majority M = N/3 + 1. This is the number of hosts that need to surpass the threshold with their prediction in order to declare the object as present.}
+	\label{fig:person_FP_FN_summary_majority3}
+\end{figure}
+It is interesting to notice that in both cases, under some circumstances, we can find advantages with our approach. The general trend for any system is to have a high precision for high thresholds and a high recall for low thresholds. If a high threshold is picked with the single-host system, we can see that the recalls starts degrading as soon as the threshold goes over 0.2 and 0.3 (see figure \ref{fig:thresholds_plot1}), which are pretty low values. The same reasoning can be done if we decide to pick a low threshold: the recall will benefit from this choice, but the precision is very low for threshold values below 0.3.
 \begin{figure*}
 	%\captionsetup{type=figure}
 	%\includegraphics[width=0.5\textwidth]{img/summary_majority_HALF_BIG.png}
-	\includegraphics[width=\textwidth]{img/summary_majority_HALF_BIG.png}
-	\caption {Majority M = N/2 + 1. This is the number of hosts that need to surpass the threshold with their prediction in order to declare the object as present.}
-	\label{fig:person_FP_FN_summary_majority2}
+	\includegraphics[width=\textwidth]{img/summary_majority_THIRD_BIG_small.png}
+	\caption {Same as figure \ref{fig:person_FP_FN_summary_majority3}, but showing the threshold on the X-axes and the precision/recall on Y-axes (left and right column, respectively).}
+	\label{fig:thresholds_plot1}
 \end{figure*}
-%\end{center}
-\begin{figure*}
-	\captionsetup{type=figure}
-	\includegraphics[width=\textwidth]{img/summary_majority_THIRD_BIG.png}
-	\caption {Majority M = N/3 + 1. This is the number of hosts that need to surpass the threshold with their prediction in order to declare the object as present.}
-	\label{fig:person_FP_FN_summary_majority3}
-\end{figure*}
-It is interesting to notice that in both cases, under some circumstances, we can find advantages with our approach. The general trend for any system is to have a high precision for high thresholds and a high recall for low thresholds. If a high threshold is picked with the single-host system, we can see that the recalls starts degrading as soon as the threshold goes over 0.2 and 0.3, which are pretty low values. The same reasoning can be done if we decide to pick a low threshold: the recall will benefit from this choice, but the precision is very low for threshold values below 0.3.
 If we compare this with the multi-host approach, we can see that the choice of the threshold can be more flexible. In fact, if we pick any threshold, we can see that if the number of hosts in the system is appropriate, we can improve the precision (recall) without degrading the recall (precision) too much.
 For instance, if our threshold is 0.4, the single-host system will have a high precision. However, if N=1 we can see that the recall is degraded. If we pick a higher N (e.g. N=6), we can see that the recall has a higher value.
 \subsection{Communication and Consensus Test}
@@ -293,11 +313,52 @@ The test showed that the fully integrated system works properly (image capture a
 \section{Results}
 \label{sec:results}
 Here we further discuss the results that we described in the previous section. We can notice that our system, under some conditions, provides better results than a single-host system. In particular, for both the majority values that we tested we had improvements in terms of precision and recall. The best overall performance is obtained with M=N/3+1. The main reason, as already mentioned, is that the models that we are using have more recall issues than precision's, i.e. in general there are more false negatives than false positives.\\*
-It can be noticed that there are some cases in which precision and recall fall to 0. This numerical issue is caused by the limited amount of data that we have: we just used 9 different positions for our experimental setup. This implies that if there are not enough optimal views, once the number of hosts that participate in the system is sufficiently high, the majority cannot be reached in any way. This is what happened in our case: among the 9 views that we used for the data fusion validation phase, only 3 of them see a person with more than 90\% as confidence score. This is why for N \textgreater= 6 and M \textgreater= 4 (M=N/2+1), precision and recall will always be 0. Similarly, if M=N/3+1, this will occur for N \textgreater= 8. However, our results also show that, already with a relatively small number of drones, there is at least one threshold value (often a set of values) for which very good performance in terms of precision and recall are obtained.
+It can be noticed that there are some cases in which precision and recall fall to 0 \ref{fig:thresholds_plot1}. This is caused by the limited amount of data that we have: we just used 9 different positions for our experimental setup. This implies that if there are not enough optimal views, once the number of hosts that participate in the system is sufficiently high, the majority cannot be reached in any way. This is what happened in our case: among the 9 views that we used for the data fusion validation phase, only 3 of them see a person with more than 90\% as confidence score. This is why for N \textgreater= 6 and M \textgreater= 4 (M=N/2+1), precision and recall will always be 0. Similarly, if M=N/3+1, this will occur for N \textgreater= 8. However, our results also show that, already with a relatively small number of drones, there is at least one threshold value (often a set of values) for which very good performance in terms of precision and recall are obtained.
+\subsection{Packet Losses}
+The evaluation of data fusion in \ref{sub:multihost} assumed no packet losses. In figures \ref{fig:packetlosses01}, \ref{fig:packetlosses02}, \ref{fig:packetlosses03}, \ref{fig:packetlosses04} and \ref{fig:packetlosses05} we show the same test, but we added a loss probability for each prediction packet. We can see that for very low loss probabilities (0.1 and 0.2), the performance of the system is still acceptable. For higher values, such as 0.5, performance degrades significantly.
+\begin{figure}%[H]
+%\label{fig:packetlosses1}
+\begin{subfigure}{\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{img/THIRD_01_loss.png}
+  \caption{M=N/3+1, P(loss)=0.1}
+  \label{fig:packetlosses01}
+\end{subfigure}%
+\begin{subfigure}{\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{img/THIRD_02_loss.png}
+  \caption{M=N/3+1, P(loss)=0.2}
+	\label{fig:packetlosses02}
+\end{subfigure}
+%\caption{asd}
+\end{figure}
+\begin{figure}%[H]
+\label{fig:packetlosses2}
+\begin{subfigure}{\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{img/THIRD_03_loss.png}
+  \caption{M=N/3+1, P(loss)=0.3}
+	\label{fig:packetlosses03}
+\end{subfigure}%
+\begin{subfigure}{\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{img/THIRD_04_loss.png}
+  \caption{M=N/3+1, P(loss)=0.4}
+	\label{fig:packetlosses04}
+\end{subfigure}
+\begin{subfigure}{\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{img/THIRD_05_loss.png}
+  \caption{M=N/3+1, P(loss)=0.5}
+	\label{fig:packetlosses05}
+\end{subfigure}
+%\caption{Data fusion with packet losses simulation. M=N/3+1}
+\label{fig:fig}
+\end{figure}
 \section{Conclusion}
 \label{sec:conclusion}
 We implemented a system that is able to improve object detection accuracy, by getting advantage of multiple views of objects. Our solution is easy to implement, mantain, and extend.
-\\*Part of the future work relates to the integration of different models, for object detection, in our system. As mentioned in section \ref{sec:obj_det_setup}, re-training the model for specific applications may improve performance significantly.\\*
+\\*Part of the future work relates to the integration of different models for object detection, in our system. As mentioned in section \ref{sec:obj_det_setup}, re-training the model for specific applications may improve performance significantly.\\*
 Additional improvements could be done on the communication protocol: it would be interesting to extend the system to have independent clusters of devices within the same network. This would imply implementing some kind of distributed routing protocol.
 \begin{thebibliography}{1}
 \bibitem{IEEEhowto:kopka}
@@ -342,6 +403,10 @@ T. Mirzayans, N. Parimi, P. Pilarski, C. Backhouse, L. Wyard-Scott, and P. Musil
 \bibitem{IEEEhowto:kopka}
 \label{reference9}
 Kincaid, Jason (November 10, 2009). \emph{Google's Go: A New Programming Language That's Python Meets C++}. TechCrunch. Retrieved January 18, 2010.
+\vspace*{-0.8\baselineskip}
+\bibitem{IEEEhowto:kopka}
+\label{reference10}
+L. Lamport (November 10, 2009). \emph{Paxos Made Simple}. November, 2001.
 
 %\bibitem{IEEEhowto:kopka}
 %\vspace*{-0.8\baselineskip}

@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.0.0 (MiKTeX 2.9.6100 64-bit)  (format=lualatex 2018.12.9)  9 JAN 2019 04:00
+This is LuaTeX, Version 1.0.0 (MiKTeX 2.9.6100 64-bit)  (format=lualatex 2018.12.9)  10 JAN 2019 03:02
  restricted system commands enabled.
 **Project1.tex
 (./Project1.tex
@@ -1323,6 +1323,9 @@ LaTeX Warning: Label `IEEEhowto:kopka' multiply defined.
 
 LaTeX Warning: Label `IEEEhowto:kopka' multiply defined.
 
+
+LaTeX Warning: Label `IEEEhowto:kopka' multiply defined.
+
 )
 \openout1 = Project1.aux
 
@@ -1440,7 +1443,7 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-<zoveralliprojectdescription.pdf, id=142, 597.432pt x 844.5954pt>
+<zoveralliprojectdescription.pdf, id=146, 597.432pt x 844.5954pt>
 File: zoveralliprojectdescription.pdf Graphic file (type pdf)
 
 <use zoveralliprojectdescription.pdf>
@@ -1451,7 +1454,7 @@ File: zoveralliprojectdescription.pdf Graphic file (type pdf)
 Package luatex.def Info: zoveralliprojectdescription.pdf used on input line 43.
 (luatex.def)             Requested size: 597.43054pt x 844.59334pt.
 
-<zoveralliprojectdescription.pdf, id=145, page=1, 597.432pt x 844.5954pt>
+<zoveralliprojectdescription.pdf, id=149, page=1, 597.432pt x 844.5954pt>
 File: zoveralliprojectdescription.pdf Graphic file (type pdf)
 
 <use zoveralliprojectdescription.pdf, page 1>
@@ -1490,129 +1493,298 @@ ne 43.
  [1
 Non-PDF special ignored!
 
-<./zoveralliprojectdescription.pdf>] [2{C:/ProgramData/MiKTeX/2.9/pdftex/config/
-pdftex.map}
+<./zoveralliprojectdescription.pdf>]
+<img/summary_majority_THIRD_N1_5_CONNECTED.png, id=163, 547.2947pt x 433.62pt>
+File: img/summary_majority_THIRD_N1_5_CONNECTED.png Graphic file (type png)
 
+<use img/summary_majority_THIRD_N1_5_CONNECTED.png>
+Package luatex.def Info: img/summary_majority_THIRD_N1_5_CONNECTED.png used on i
+nput line 53.
+(luatex.def)             Requested size: 338.94543pt x 268.55049pt.
+ [2
 
-]
-<img/setup.png, id=177, 651.93562pt x 309.40594pt>
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [3<./img/summary_majority_
+THIRD_N1_5_CONNECTED.png>] <img/setup.png, id=190, 651.93562pt x 309.40594pt>
 File: img/setup.png Graphic file (type png)
  <use img/setup.png>
-Package luatex.def Info: img/setup.png used on input line 80.
+Package luatex.def Info: img/setup.png used on input line 86.
 (luatex.def)             Requested size: 227.57922pt x 108.0057pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[3
+[4
 
-] [4<./img/setup.png>]
-<img/person_detection.png, id=209, 289.83281pt x 95.6072pt>
+
+] [5<./img/setup.png>]
+<img/person_detection.png, id=221, 289.83281pt x 95.6072pt>
 File: img/person_detection.png Graphic file (type png)
 
 <use img/person_detection.png>
-Package luatex.def Info: img/person_detection.png used on input line 131.
+Package luatex.def Info: img/person_detection.png used on input line 137.
 (luatex.def)             Requested size: 227.57922pt x 75.07222pt.
 
-<img/bottle_detection.png, id=210, 289.83281pt x 96.36pt>
+<img/bottle_detection.png, id=222, 289.83281pt x 96.36pt>
 File: img/bottle_detection.png Graphic file (type png)
 
 <use img/bottle_detection.png>
-Package luatex.def Info: img/bottle_detection.png used on input line 137.
+Package luatex.def Info: img/bottle_detection.png used on input line 143.
 (luatex.def)             Requested size: 227.57922pt x 75.66333pt.
 
-<img/person_bad_position.png, id=211, 192.72pt x 96.36pt>
+<img/person_bad_position.png, id=223, 192.72pt x 96.36pt>
 File: img/person_bad_position.png Graphic file (type png)
 
 <use img/person_bad_position.png>
-Package luatex.def Info: img/person_bad_position.png used on input line 143.
+Package luatex.def Info: img/person_bad_position.png used on input line 149.
 (luatex.def)             Requested size: 145.26443pt x 72.6315pt.
- [5<./img/person_detection.png><./img/bottle_detection.png><./img/person_bad_pos
+ [6<./img/person_detection.png><./img/bottle_detection.png><./img/person_bad_pos
 ition.png>]
 
-! LaTeX Error: \begin{enumerate} on input line 174 ended by \end{itemize}.
+! LaTeX Error: \begin{enumerate} on input line 180 ended by \end{itemize}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.178 \end{itemize}
+l.184 \end{itemize}
                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<img/protocol_sketch_inter_host.jpg, id=228, 556.32843pt x 322.20375pt>
+<img/protocol_sketch_inter_host.jpg, id=241, 569.87906pt x 331.99031pt>
 File: img/protocol_sketch_inter_host.jpg Graphic file (type jpg)
 
 <use img/protocol_sketch_inter_host.jpg>
 Package luatex.def Info: img/protocol_sketch_inter_host.jpg used on input line 1
-90.
-(luatex.def)             Requested size: 227.57922pt x 131.80449pt.
- [6<./img/protocol_sketch_inter_host.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 205--205
+99.
+(luatex.def)             Requested size: 227.57922pt x 132.57593pt.
+ [7<./img/protocol_sketch_inter_host.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 214--214
 [][][][]\OT1/ptm/m/n/8 Chan-nels: []$https://www.sohamkamani.com/blog/2017/08/2
 4/
  []
 
-<img/protocol_sketch_intra_host.jpg, id=244, 478.78876pt x 255.95625pt>
+<img/protocol_sketch_intra_host.jpg, id=257, 478.78876pt x 255.95625pt>
 File: img/protocol_sketch_intra_host.jpg Graphic file (type jpg)
 
 <use img/protocol_sketch_intra_host.jpg>
 Package luatex.def Info: img/protocol_sketch_intra_host.jpg used on input line 2
-09.
+18.
 (luatex.def)             Requested size: 227.57922pt x 121.66249pt.
+
+Underfull \vbox (badness 5091) has occurred while \output is active []
+
+ [8<./img/protocol_sketch_intra_host.jpg>]
+<img/temporal_sketch_NEW.jpg, id=269, 320.69812pt x 427.5975pt>
+File: img/temporal_sketch_NEW.jpg Graphic file (type jpg)
+
+<use img/temporal_sketch_NEW.jpg>
+Package luatex.def Info: img/temporal_sketch_NEW.jpg used on input line 242.
+(luatex.def)             Requested size: 242.10493pt x 322.81131pt.
+
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 242--243
+ [] 
+ []
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [7<./img/protocol_sketch_intra_host.jpg>]
-<img/temporal_sketch.jpg, id=256, 548.0475pt x 427.5975pt>
-File: img/temporal_sketch.jpg Graphic file (type jpg)
-
-<use img/temporal_sketch.jpg>
-Package luatex.def Info: img/temporal_sketch.jpg used on input line 233.
-(luatex.def)             Requested size: 242.10493pt x 188.8938pt.
-
-Overfull \hbox (9.03374pt too wide) in paragraph at lines 233--234
- [] 
- []
-
-[8<./img/temporal_sketch.jpg>]
-<img/person_FP_FN.png, id=270, 383.93437pt x 96.36pt>
+ [9<./img/temporal_sketch_NEW.jpg>] <img/person_FP_FN.png, id=281, 383.93437pt 
+x 96.36pt>
 File: img/person_FP_FN.png Graphic file (type png)
 
 <use img/person_FP_FN.png>
-Package luatex.def Info: img/person_FP_FN.png used on input line 260.
+Package luatex.def Info: img/person_FP_FN.png used on input line 271.
 (luatex.def)             Requested size: 242.10493pt x 60.76445pt.
 
-Overfull \hbox (9.03374pt too wide) in paragraph at lines 260--261
- [] 
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 271--272
+[][] 
  []
 
-<img/summary_majority_HALF_BIG.png, id=273, 1469.49pt x 785.93625pt>
-File: img/summary_majority_HALF_BIG.png Graphic file (type png)
 
-<use img/summary_majority_HALF_BIG.png>
-Package luatex.def Info: img/summary_majority_HALF_BIG.png used on input line 26
-9.
-(luatex.def)             Requested size: 484.20988pt x 258.976pt.
+<img/summary_majority_HALF_N1_5_CONNECTED.png, id=284, 545.78906pt x 426.84468p
+t>
+File: img/summary_majority_HALF_N1_5_CONNECTED.png Graphic file (type png)
+ <use img/summary_majority_HALF_N1_5_CONNECTED.png>
+Package luatex.def Info: img/summary_majority_HALF_N1_5_CONNECTED.png used on in
+put line 282.
+(luatex.def)             Requested size: 242.10493pt x 189.34282pt.
 
-<img/summary_majority_THIRD_BIG.png, id=274, 1463.4675pt x 773.89125pt>
-File: img/summary_majority_THIRD_BIG.png Graphic file (type png)
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 282--283
+[][] 
+ []
 
-<use img/summary_majority_THIRD_BIG.png>
-Package luatex.def Info: img/summary_majority_THIRD_BIG.png used on input line 2
-76.
-(luatex.def)             Requested size: 484.20988pt x 256.05798pt.
-LaTeX Font Info:    Try loading font information for OML+ptm on input line 296.
+File: img/summary_majority_THIRD_N1_5_CONNECTED.png Graphic file (type png)
+<use img/summary_majority_THIRD_N1_5_CONNECTED.png>
+Package luatex.def Info: img/summary_majority_THIRD_N1_5_CONNECTED.png used on i
+nput line 289.
+(luatex.def)             Requested size: 242.10493pt x 191.81894pt.
+
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 289--290
+[][] 
+ []
+
+
+<img/summary_majority_THIRD_BIG_small.png, id=286, 1070.49937pt x 773.89125pt>
+File: img/summary_majority_THIRD_BIG_small.png Graphic file (type png)
+
+<use img/summary_majority_THIRD_BIG_small.png>
+Package luatex.def Info: img/summary_majority_THIRD_BIG_small.png used on input 
+line 297.
+(luatex.def)             Requested size: 484.20988pt x 350.05457pt.
+
+Underfull \vbox (badness 1308) has occurred while \output is active []
+
+ [10<./img/person_FP_FN.png><./img/summary_majority_HALF_N1_5_CONNECTED.png>]
+LaTeX Font Info:    Try loading font information for OML+ptm on input line 316.
 
 ("C:/Program Files/MiKTeX 2.9/tex/latex/psnfss/omlptm.fd"
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 296.
- [9<./img/person_FP_FN.png>] [10<./img/summary_majority_HALF_BIG.png><./img/summ
-ary_majority_THIRD_BIG.png>]
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 316.
+ [11<./img/summary_majority_THIRD_BIG_small.png>]
+! Missing number, treated as zero.
+<to be read again> 
+}
+l.321 \begin{subfigure}{\textwidth}
+                                 
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+}
+l.321 \begin{subfigure}{\textwidth}
+                                 
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+<img/THIRD_01_loss.png, id=319, 548.0475pt x 422.32782pt>
+File: img/THIRD_01_loss.png Graphic file (type png)
+
+<use img/THIRD_01_loss.png>
+Package luatex.def Info: img/THIRD_01_loss.png used on input line 323.
+(luatex.def)             Requested size: 233.0712pt x 179.60616pt.
+
+! Missing number, treated as zero.
+<to be read again> 
+}
+l.327 \begin{subfigure}{\textwidth}
+                                 
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+}
+l.327 \begin{subfigure}{\textwidth}
+                                 
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+<img/THIRD_02_loss.png, id=320, 542.77782pt x 421.575pt>
+File: img/THIRD_02_loss.png Graphic file (type png)
+
+<use img/THIRD_02_loss.png>
+Package luatex.def Info: img/THIRD_02_loss.png used on input line 329.
+(luatex.def)             Requested size: 233.0712pt x 181.02927pt.
+
+! Missing number, treated as zero.
+<to be read again> 
+}
+l.337 \begin{subfigure}{\textwidth}
+                                 
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+}
+l.337 \begin{subfigure}{\textwidth}
+                                 
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+<img/THIRD_03_loss.png, id=321, 542.025pt x 420.82219pt>
+File: img/THIRD_03_loss.png Graphic file (type png)
+
+<use img/THIRD_03_loss.png>
+Package luatex.def Info: img/THIRD_03_loss.png used on input line 339.
+(luatex.def)             Requested size: 233.0712pt x 180.95642pt.
+
+! Missing number, treated as zero.
+<to be read again> 
+}
+l.343 \begin{subfigure}{\textwidth}
+                                 
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+}
+l.343 \begin{subfigure}{\textwidth}
+                                 
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+<img/THIRD_04_loss.png, id=322, 543.53062pt x 423.83344pt>
+File: img/THIRD_04_loss.png Graphic file (type png)
+
+<use img/THIRD_04_loss.png>
+Package luatex.def Info: img/THIRD_04_loss.png used on input line 345.
+(luatex.def)             Requested size: 233.0712pt x 181.74684pt.
+
+! Missing number, treated as zero.
+<to be read again> 
+}
+l.349 \begin{subfigure}{\textwidth}
+                                 
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+}
+l.349 \begin{subfigure}{\textwidth}
+                                 
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+<img/THIRD_05_loss.png, id=323, 546.54187pt x 424.58624pt>
+File: img/THIRD_05_loss.png Graphic file (type png)
+
+<use img/THIRD_05_loss.png>
+Package luatex.def Info: img/THIRD_05_loss.png used on input line 351.
+(luatex.def)             Requested size: 233.0712pt x 181.06548pt.
+
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -1624,8 +1796,7 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 353.
-[11
+[12
 warning  (pdf backend): ignoring duplicate destination with the name 'cite.IEEEh
 owto:kopka'
 
@@ -1653,30 +1824,44 @@ owto:kopka'
 warning  (pdf backend): ignoring duplicate destination with the name 'cite.IEEEh
 owto:kopka'
 
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 353.
+warning  (pdf backend): ignoring duplicate destination with the name 'cite.IEEEh
+owto:kopka'
+<./img/THIRD_01_loss.png><./img/THIRD_02_loss.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 418.
+ [13
+
+<./img/THIRD_03_loss.png><./img/THIRD_04_loss.png><./img/THIRD_05_loss.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 418.
  (./Project1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 353.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 353.
-Package rerunfilecheck Info: File `Project1.out' has not changed.
-(rerunfilecheck)             Checksum: 227F97555427BFC58B4C9462D871B50C;2351.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 418.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 418.
 
+
+Package rerunfilecheck Warning: File `Project1.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Project1.out':
+(rerunfilecheck)             Before: 3268F177901F0E2F2EF8711C7B2E9324;2415
+(rerunfilecheck)             After:  E8419EAE94D17B00E621BFE0914BEA47;2415.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 353.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 418.
 )
 
 Here is how much of LuaTeX's memory you used:
- 31791 strings out of 495094
+ 31885 strings out of 495094
  100000,953878 words of node,token memory allocated
- 3716 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 287 glue, 249 kern, 59 glue_spec, 1 write, 2 pdf_ac
+ 3968 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 308 glue, 270 kern, 59 glue_spec, 1 write, 2 pdf_ac
 tion nodes
-   avail lists: 1:1,2:33,3:196,4:42,5:213,6:7978,7:1516,8:83,9:202,10:19,11:780
- 34160 multiletter control sequences out of 65536+200000
+   avail lists: 1:1,2:33,3:279,4:43,5:225,6:7978,7:1498,8:83,9:233,10:19,11:780
+ 34196 multiletter control sequences out of 65536+200000
  165 fonts using 11019255 bytes
- 62i,18n,92p,1595b,918s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,18n,92p,1595b,914s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+warning  (pdf backend): unreferenced destination with name 'section*.20'
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fon
 ts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
@@ -1686,9 +1871,9 @@ sy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Progra
 m Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.
 9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/
 times/utmri8a.pfb>
-Output written on Project1.pdf (11 pages, 1143598 bytes).
+Output written on Project1.pdf (13 pages, 1066959 bytes).
 
-PDF statistics: 334 PDF objects out of 1000 (max. 8388607)
- 70 named destinations out of 1000 (max. 131072)
- 288 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 385 PDF objects out of 1000 (max. 8388607)
+ 86 named destinations out of 1000 (max. 131072)
+ 296 words of extra memory for PDF output out of 10000 (max. 100000000)
 
