@@ -47,10 +47,11 @@
 %\section{Name}
 Getting advantage of multiple devices in order to solve computer vision-related tasks has been a popular choice during the past years. Our main goal is to improve the accuracy of object detection in the context of drone swarms. 
 The massive deployment of drones in next generation mobile networks like 5G calls for an efficient bandwidth usage, which is particularly important in the case of multiple co-located drones such as in drone swarms. For this reason we aim at developing a system that minimizes bandwidth usage while enhancing over a single-drone object recognition system.
-We implemented a low-complexity and bandwidth-efficient multi-agent system that takes into consideration the multiple viewpoints and uses them to detect the presence or absence of a target object. We successfully tested the system from the image capture to the intra-swarm communication and data fusion and compared our solution to a single-angent system. Our test results show that the performance of the proposed system in terms of \emph{precision} and \emph{recall} quickly improves with the number of drones while keeping complexity and bandwidth usage low, thus helping scalability.
-\begin{figure}
+We implemented a low-complexity and bandwidth-efficient multi-agent system that takes into consideration the multiple viewpoints and uses them to detect the presence or absence of a target object. We successfully tested the system from the image capture to the intra-swarm communication and data fusion and compared our solution to a single-agent system. Our test results show that the performance of the proposed system in terms of \emph{precision} and \emph{recall} quickly improves with the number of drones while keeping complexity and bandwidth usage low, thus helping scalability.  The following figure summarizes some of the results obtained by comparing our solution with a single-host system.
+\begin{figure}[h!]
+	\centering
 	\captionsetup{type=figure}
-	\includegraphics[width=0.7\textwidth]{img/summary_majority_THIRD_N1_5_CONNECTED.png}
+	\includegraphics[width=0.8\textwidth]{img/summary_majority_THIRD_N1_5_CONNECTED.png}
 \end{figure}
 \clearpage{}
 
@@ -59,7 +60,7 @@ We implemented a low-complexity and bandwidth-efficient multi-agent system that 
 Getting advantage of multiple devices in order to solve computer vision-related tasks has been a popular choice during the past years. Our main goal is to improve the accuracy of object detection in the context of drone swarms. 
 %As additional constraints, we also want to build 
 The massive deployment of drones in next generation mobile networks like 5G calls for an efficient bandwidth usage, which is particularly important in the case of multiple co-located drones such as in drone swarms. For this reason we aim at developing a system that minimizes bandwidth usage while enhancing over a single-drone object recognition system.
- We implemented a low-complexity and bandwidth-efficient multi-agent system that takes into consideration the multiple viewpoints and uses them to detect the presence or absence of a target object. We successfully tested the system from the image capture to the intra-swarm communication and data fusion and compared our solution to a single-angent system. Our test results show that the performance of the proposed system in terms of \emph{precision} and \emph{recall} quickly improves with the number of drones while keeping complexity and bandwidth usage low, thus helping scalability.
+ We implemented a low-complexity and bandwidth-efficient multi-agent system that takes into consideration the multiple viewpoints and uses them to detect the presence or absence of a target object. We successfully tested the system from the image capture to the intra-swarm communication and data fusion and compared our solution to a single-agent system. Our test results show that the performance of the proposed system in terms of \emph{precision} and \emph{recall} quickly improves with the number of drones while keeping complexity and bandwidth usage low, thus helping scalability.
 \end{abstract}
 % State of the art: describe the problem and current research.
 \section{Introduction}
@@ -237,12 +238,15 @@ The final prediction is propagated to a base station, and the leader does not ad
 \end{itemize}
 \subsubsection*{Leader Election}
 If we assume that all the nodes have good reachability with each other, it is not important who the leader is. Instead, it is important that the whole swarm does not rely always on the same node to be the leader, in order to avoid a single point of failure. For this reason, the leader is simply determined by the Round ID: each leader has a Node ID, and at round i, the leader is the node with Node ID = i \% N, where N is the number of hosts in our network.
-\begin{center}
-	\captionsetup{type=figure}
+%\begin{center}
+\begin{figure}
+	\centering
+%	\captionsetup{type=figure}
 	\includegraphics[width=0.5\textwidth]{img/temporal_sketch_NEW.jpg}
 	\caption {Example of execution of one round of the protocol, without packet losses.}
 	\label{fig:temporal_sketch}
-\end{center}
+\end{figure}
+%\end{center}
 \section{Experiments}
 In this section we describe the results of our approach, by showing experiments performed on a class of objects.
 %We consider two different setups: one that involves a noisy environment and one that was performed in a clean environment without surrounding objects.

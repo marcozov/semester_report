@@ -20,67 +20,82 @@
 \@writefile{toc}{\select@language{english}}
 \@writefile{lof}{\select@language{english}}
 \@writefile{lot}{\select@language{english}}
-\@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{4}{section.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {I-A}}Related Work}{4}{subsection.1.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {II}System Setup}{4}{section.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces System setup\relax }}{5}{figure.caption.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{3}{section.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {I-A}}Related Work}{3}{subsection.1.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {II}System Setup}{3}{section.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces System setup\relax }}{4}{figure.caption.3}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:setup}{{1}{5}{System setup\relax }{figure.caption.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-A}}Hardware}{5}{subsection.2.1}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {II-A}1}Embedded boards}{5}{subsubsection.2.1.1}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {II-A}2}Connectivity}{5}{subsubsection.2.1.2}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {II-A}3}Image Acquisition}{5}{subsubsection.2.1.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {III}Object Detection Setup}{5}{section.3}}
-\newlabel{sec:obj_det_setup}{{III}{5}{Object Detection Setup}{section.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-A}}Image Acquisition}{5}{subsection.3.1}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-A}1}Capture rate}{5}{subsubsection.3.1.1}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-A}2}Frame size}{5}{subsubsection.3.1.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-B}}Model Selection and Preliminary Object Detection Tests}{6}{subsection.3.2}}
-\newlabel{model:ssd}{{\unhbox \voidb@x \hbox {III-B}1}{6}{SSD Mobilenet}{subsubsection.3.2.1}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-B}1}SSD Mobilenet}{6}{subsubsection.3.2.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Preliminary test of detection of people in a noisy environment: the confidence scores are extremely high.\relax }}{6}{figure.caption.4}}
-\newlabel{fig:person_detection}{{2}{6}{Preliminary test of detection of people in a noisy environment: the confidence scores are extremely high.\relax }{figure.caption.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Preliminary test of detection of bottle in a noisy environment: the confidence scores are lower than the ones that relate to people, although the quality of the view is comparable.\relax }}{6}{figure.caption.5}}
-\newlabel{fig:bottle_detection}{{3}{6}{Preliminary test of detection of bottle in a noisy environment: the confidence scores are lower than the ones that relate to people, although the quality of the view is comparable.\relax }{figure.caption.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces A person not detected very well.\relax }}{6}{figure.caption.6}}
-\newlabel{fig:person_bad_position}{{4}{6}{A person not detected very well.\relax }{figure.caption.6}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-B}2}Faster R-CNN (Region Convolutional Neural Network}{6}{subsubsection.3.2.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-C}}Measures of Interest}{6}{subsection.3.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {IV}Proposed System}{7}{section.4}}
-\newlabel{sec:design}{{IV}{7}{Proposed System}{section.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}}Consensus Protocol}{7}{subsection.4.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-B}}Protocol Overview}{7}{subsection.4.2}}
-\newlabel{subsec:protooverview}{{\unhbox \voidb@x \hbox {IV-B}}{7}{Protocol Overview}{subsection.4.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Inter-host communication\relax }}{7}{figure.caption.7}}
-\newlabel{fig:inter_host}{{5}{7}{Inter-host communication\relax }{figure.caption.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}}Prediction Obtainment and Inter-process communication}{8}{subsection.4.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Intra-host communication: this figure summarizes the leader perspective, since only the leader takes into account the external predictions, computes a final vote, and propagates it. Follower nodes behave similarly, but they do not compute/send any final vote.\relax }}{8}{figure.caption.8}}
-\newlabel{fig:intra_host}{{6}{8}{Intra-host communication: this figure summarizes the leader perspective, since only the leader takes into account the external predictions, computes a final vote, and propagates it. Follower nodes behave similarly, but they do not compute/send any final vote.\relax }{figure.caption.8}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-D}}Exchanged Messages}{8}{subsection.4.4}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-D}1}Probe}{8}{subsubsection.4.4.1}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-D}2}Status}{8}{subsubsection.4.4.2}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-D}3}Final Prediction}{8}{subsubsection.4.4.3}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-D}4}Acknowledgement}{8}{subsubsection.4.4.4}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-D}5}Start Round}{8}{subsubsection.4.4.5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-E}}Communication Strategy}{8}{subsection.4.5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-F}}Propagation frequency}{8}{subsection.4.6}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-G}}Hosts synchronization}{9}{subsection.4.7}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Example of execution of one round of the protocol, without packet losses.\relax }}{9}{figure.caption.10}}
-\newlabel{fig:temporal_sketch}{{7}{9}{Example of execution of one round of the protocol, without packet losses.\relax }{figure.caption.10}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {V}Experiments}{9}{section.5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-A}}Data Fusion Validation}{9}{subsection.5.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Setup: we are investigating the presence/absence of a person. In the two leftmost images, a chair is misclassified as a person. In the two rightmost images, a person is not recognized too well.\relax }}{10}{figure.caption.14}}
-\newlabel{fig:person_FP_FN}{{8}{10}{Setup: we are investigating the presence/absence of a person. In the two leftmost images, a chair is misclassified as a person. In the two rightmost images, a person is not recognized too well.\relax }{figure.caption.14}{}}
-\newlabel{sub:multihost}{{\unhbox \voidb@x \hbox {V-A}}{10}{Multi-host system}{section*.12}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Majority M = N/2 + 1. This is the number of hosts that need to surpass the threshold with their prediction in order to declare the object as present.\relax }}{10}{figure.caption.15}}
-\newlabel{fig:person_FP_FN_summary_majority2}{{9}{10}{Majority M = N/2 + 1. This is the number of hosts that need to surpass the threshold with their prediction in order to declare the object as present.\relax }{figure.caption.15}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Majority M = N/3 + 1. This is the number of hosts that need to surpass the threshold with their prediction in order to declare the object as present.\relax }}{10}{figure.caption.17}}
-\newlabel{fig:person_FP_FN_summary_majority3}{{10}{10}{Majority M = N/3 + 1. This is the number of hosts that need to surpass the threshold with their prediction in order to declare the object as present.\relax }{figure.caption.17}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Same as figure \ref  {fig:person_FP_FN_summary_majority3}, but showing the threshold on the X-axes and the precision/recall on Y-axes (left and right column, respectively).\relax }}{11}{figure.caption.18}}
-\newlabel{fig:thresholds_plot1}{{11}{11}{Same as figure \ref {fig:person_FP_FN_summary_majority3}, but showing the threshold on the X-axes and the precision/recall on Y-axes (left and right column, respectively).\relax }{figure.caption.18}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-B}}Communication and Consensus Test}{11}{subsection.5.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {VI}Results}{11}{section.6}}
-\newlabel{sec:results}{{VI}{11}{Results}{section.6}{}}
+\newlabel{fig:setup}{{1}{4}{System setup\relax }{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-A}}Hardware}{4}{subsection.2.1}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {II-A}1}Embedded boards}{4}{subsubsection.2.1.1}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {II-A}2}Connectivity}{4}{subsubsection.2.1.2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {II-A}3}Image Acquisition}{4}{subsubsection.2.1.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Object Detection Setup}{4}{section.3}}
+\newlabel{sec:obj_det_setup}{{III}{4}{Object Detection Setup}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-A}}Image Acquisition}{4}{subsection.3.1}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-A}1}Capture rate}{4}{subsubsection.3.1.1}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-A}2}Frame size}{4}{subsubsection.3.1.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-B}}Model Selection and Preliminary Object Detection Tests}{5}{subsection.3.2}}
+\newlabel{model:ssd}{{\unhbox \voidb@x \hbox {III-B}1}{5}{SSD Mobilenet}{subsubsection.3.2.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-B}1}SSD Mobilenet}{5}{subsubsection.3.2.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Preliminary test of detection of people in a noisy environment: the confidence scores are extremely high.\relax }}{5}{figure.caption.4}}
+\newlabel{fig:person_detection}{{2}{5}{Preliminary test of detection of people in a noisy environment: the confidence scores are extremely high.\relax }{figure.caption.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Preliminary test of detection of bottle in a noisy environment: the confidence scores are lower than the ones that relate to people, although the quality of the view is comparable.\relax }}{5}{figure.caption.5}}
+\newlabel{fig:bottle_detection}{{3}{5}{Preliminary test of detection of bottle in a noisy environment: the confidence scores are lower than the ones that relate to people, although the quality of the view is comparable.\relax }{figure.caption.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces A person not detected very well.\relax }}{5}{figure.caption.6}}
+\newlabel{fig:person_bad_position}{{4}{5}{A person not detected very well.\relax }{figure.caption.6}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-B}2}Faster R-CNN (Region Convolutional Neural Network}{5}{subsubsection.3.2.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-C}}Measures of Interest}{5}{subsection.3.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Proposed System}{6}{section.4}}
+\newlabel{sec:design}{{IV}{6}{Proposed System}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}}Consensus Protocol}{6}{subsection.4.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-B}}Protocol Overview}{6}{subsection.4.2}}
+\newlabel{subsec:protooverview}{{\unhbox \voidb@x \hbox {IV-B}}{6}{Protocol Overview}{subsection.4.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Inter-host communication\relax }}{6}{figure.caption.7}}
+\newlabel{fig:inter_host}{{5}{6}{Inter-host communication\relax }{figure.caption.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}}Prediction Obtainment and Inter-process communication}{7}{subsection.4.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Intra-host communication: this figure summarizes the leader perspective, since only the leader takes into account the external predictions, computes a final vote, and propagates it. Follower nodes behave similarly, but they do not compute/send any final vote.\relax }}{7}{figure.caption.8}}
+\newlabel{fig:intra_host}{{6}{7}{Intra-host communication: this figure summarizes the leader perspective, since only the leader takes into account the external predictions, computes a final vote, and propagates it. Follower nodes behave similarly, but they do not compute/send any final vote.\relax }{figure.caption.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-D}}Exchanged Messages}{7}{subsection.4.4}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-D}1}Probe}{7}{subsubsection.4.4.1}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-D}2}Status}{7}{subsubsection.4.4.2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-D}3}Final Prediction}{7}{subsubsection.4.4.3}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-D}4}Acknowledgement}{7}{subsubsection.4.4.4}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-D}5}Start Round}{7}{subsubsection.4.4.5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-E}}Communication Strategy}{7}{subsection.4.5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-F}}Propagation frequency}{7}{subsection.4.6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-G}}Hosts synchronization}{8}{subsection.4.7}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Experiments}{8}{section.5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-A}}Data Fusion Validation}{8}{subsection.5.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Example of execution of one round of the protocol, without packet losses.\relax }}{8}{figure.caption.10}}
+\newlabel{fig:temporal_sketch}{{7}{8}{Example of execution of one round of the protocol, without packet losses.\relax }{figure.caption.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Setup: we are investigating the presence/absence of a person. In the two leftmost images, a chair is misclassified as a person. In the two rightmost images, a person is not recognized too well.\relax }}{9}{figure.caption.14}}
+\newlabel{fig:person_FP_FN}{{8}{9}{Setup: we are investigating the presence/absence of a person. In the two leftmost images, a chair is misclassified as a person. In the two rightmost images, a person is not recognized too well.\relax }{figure.caption.14}{}}
+\newlabel{sub:multihost}{{\unhbox \voidb@x \hbox {V-A}}{9}{Multi-host system}{section*.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Majority M = N/2 + 1. This is the number of hosts that need to surpass the threshold with their prediction in order to declare the object as present.\relax }}{9}{figure.caption.15}}
+\newlabel{fig:person_FP_FN_summary_majority2}{{9}{9}{Majority M = N/2 + 1. This is the number of hosts that need to surpass the threshold with their prediction in order to declare the object as present.\relax }{figure.caption.15}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Majority M = N/3 + 1. This is the number of hosts that need to surpass the threshold with their prediction in order to declare the object as present.\relax }}{9}{figure.caption.17}}
+\newlabel{fig:person_FP_FN_summary_majority3}{{10}{9}{Majority M = N/3 + 1. This is the number of hosts that need to surpass the threshold with their prediction in order to declare the object as present.\relax }{figure.caption.17}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-B}}Communication and Consensus Test}{9}{subsection.5.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Same as figure \ref  {fig:person_FP_FN_summary_majority3}, but showing the threshold on the X-axes and the precision/recall on Y-axes (left and right column, respectively).\relax }}{10}{figure.caption.18}}
+\newlabel{fig:thresholds_plot1}{{11}{10}{Same as figure \ref {fig:person_FP_FN_summary_majority3}, but showing the threshold on the X-axes and the precision/recall on Y-axes (left and right column, respectively).\relax }{figure.caption.18}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Results}{10}{section.6}}
+\newlabel{sec:results}{{VI}{10}{Results}{section.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces M=N/3+1, P(loss)=0.1\relax }}{11}{figure.caption.19}}
+\newlabel{fig:packetlosses01}{{12}{11}{M=N/3+1, P(loss)=0.1\relax }{figure.caption.19}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces M=N/3+1, P(loss)=0.2\relax }}{11}{figure.caption.19}}
+\newlabel{fig:packetlosses02}{{13}{11}{M=N/3+1, P(loss)=0.2\relax }{figure.caption.19}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VI-A}}Packet Losses}{11}{subsection.6.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {VII}Conclusion}{11}{section.7}}
+\newlabel{sec:conclusion}{{VII}{11}{Conclusion}{section.7}{}}
+\newlabel{fig:packetlosses2}{{\caption@xref {fig:packetlosses2}{ on input line 340}}{11}{Packet Losses}{figure.caption.20}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces M=N/3+1, P(loss)=0.3\relax }}{11}{figure.caption.20}}
+\newlabel{fig:packetlosses03}{{14}{11}{M=N/3+1, P(loss)=0.3\relax }{figure.caption.20}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces M=N/3+1, P(loss)=0.4\relax }}{11}{figure.caption.20}}
+\newlabel{fig:packetlosses04}{{15}{11}{M=N/3+1, P(loss)=0.4\relax }{figure.caption.20}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces M=N/3+1, P(loss)=0.5\relax }}{11}{figure.caption.20}}
+\newlabel{fig:packetlosses05}{{16}{11}{M=N/3+1, P(loss)=0.5\relax }{figure.caption.20}{}}
+\newlabel{fig:fig}{{\caption@xref {fig:fig}{ on input line 360}}{11}{Packet Losses}{figure.caption.20}{}}
 \bibcite{IEEEhowto:kopka}{1}
 \bibcite{IEEEhowto:kopka}{2}
 \bibcite{IEEEhowto:kopka}{3}
@@ -92,9 +107,6 @@
 \bibcite{IEEEhowto:kopka}{9}
 \bibcite{IEEEhowto:kopka}{10}
 \bibcite{IEEEhowto:kopka}{11}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VI-A}}Packet Losses}{12}{subsection.6.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {VII}Conclusion}{12}{section.7}}
-\newlabel{sec:conclusion}{{VII}{12}{Conclusion}{section.7}{}}
 \@writefile{toc}{\contentsline {section}{References}{12}{section*.21}}
 \newlabel{reference0}{{1}{12}{\refname }{section*.21}{}}
 \newlabel{reference1}{{2}{12}{\refname }{section*.21}{}}
@@ -102,20 +114,8 @@
 \newlabel{reference3}{{4}{12}{\refname }{section*.21}{}}
 \newlabel{reference6}{{5}{12}{\refname }{section*.21}{}}
 \newlabel{reference4}{{6}{12}{\refname }{section*.21}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces M=N/3+1, P(loss)=0.1\relax }}{12}{figure.caption.19}}
-\newlabel{fig:packetlosses01}{{12}{12}{M=N/3+1, P(loss)=0.1\relax }{figure.caption.19}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces M=N/3+1, P(loss)=0.2\relax }}{12}{figure.caption.19}}
-\newlabel{fig:packetlosses02}{{13}{12}{M=N/3+1, P(loss)=0.2\relax }{figure.caption.19}{}}
 \newlabel{reference5}{{7}{12}{\refname }{section*.21}{}}
 \newlabel{reference8}{{8}{12}{\refname }{section*.21}{}}
 \newlabel{reference7}{{9}{12}{\refname }{section*.21}{}}
 \newlabel{reference9}{{10}{12}{\refname }{section*.21}{}}
 \newlabel{reference10}{{11}{12}{\refname }{section*.21}{}}
-\newlabel{fig:packetlosses2}{{\caption@xref {fig:packetlosses2}{ on input line 336}}{13}{Packet Losses}{figure.caption.20}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces M=N/3+1, P(loss)=0.3\relax }}{13}{figure.caption.20}}
-\newlabel{fig:packetlosses03}{{14}{13}{M=N/3+1, P(loss)=0.3\relax }{figure.caption.20}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces M=N/3+1, P(loss)=0.4\relax }}{13}{figure.caption.20}}
-\newlabel{fig:packetlosses04}{{15}{13}{M=N/3+1, P(loss)=0.4\relax }{figure.caption.20}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces M=N/3+1, P(loss)=0.5\relax }}{13}{figure.caption.20}}
-\newlabel{fig:packetlosses05}{{16}{13}{M=N/3+1, P(loss)=0.5\relax }{figure.caption.20}{}}
-\newlabel{fig:fig}{{\caption@xref {fig:fig}{ on input line 356}}{13}{Packet Losses}{figure.caption.20}{}}
